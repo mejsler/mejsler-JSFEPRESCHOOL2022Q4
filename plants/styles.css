@@ -18,13 +18,21 @@ body {
 }
 
 h1, h2, h3, h4, h5 {
-  font-family: "Inter", sans-serif;
+  font-family: "Inika", sans-serif;
 }
 
 h1 {
+  font-family: "Inter";
   font-size: 45px;
   font-weight: 700;
   line-height: 50px;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 52px;
+  color: #499A18;
+  margin: 0;
 }
 
 ul {
@@ -38,6 +46,12 @@ a {
   text-decoration: none;
 }
 
+p {
+  font-size: 20px;
+  line-height: 30px;
+  color: #636060;
+}
+
 .button {
   text-transform: uppercase;
   border: 2px solid #E06733;
@@ -46,13 +60,14 @@ a {
   line-height: 1;
   font-size: 16px;
   transition: all 0.3s ease;
+  cursor: pointer;
 }
 .button:hover {
   color: #fff;
   background-color: #E06733;
 }
 
-.wrapper {
+.container {
   width: 1220px;
   margin: 0 auto;
 }
@@ -74,12 +89,6 @@ a {
   font-weight: bold;
 }
 
-.welcome {
-  display: flex;
-  justify-content: space-between;
-  padding: 62px 0;
-  gap: 18%;
-}
 .welcome__image {
   margin-top: -9px;
   margin-left: -9px;
@@ -91,11 +100,39 @@ a {
   color: #499A18;
 }
 .welcome__content p {
-  font-size: 20px;
-  color: #636060;
   line-height: 35px;
   margin-bottom: 47px;
 }
 .welcome__content button {
   padding: 12px 24px;
+}
+.welcome .container {
+  padding: 62px 0;
+  gap: 18%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.about {
+  background-color: #fff;
+}
+.about .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 13%;
+  padding: 93px 0;
+}
+.about h2 {
+  margin: 0;
+}
+.about p {
+  margin-top: 36px;
+  margin-bottom: 0;
+}
+.about span {
+  color: #E06733;
+}
+.about img {
+  margin-top: -7px;
 }/*# sourceMappingURL=styles.css.map */
