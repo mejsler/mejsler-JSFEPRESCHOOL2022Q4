@@ -5,17 +5,16 @@ $dark-gray: #636060
 $bg: #EDF2EC
 $link: #010201
 
-@import url('https://fonts.googleapis.com/css?family=Inter')
-@import url('https://fonts.googleapis.com/css?family=Inika')
+@import url('https://fonts.googleapis.com/css2?family=Inika:wght@400;700&family=Inter:wght@400;700&display=swap')
 
 html
     box-sizing: border-box
-    font-family: Inter, sans-serif
+    font-family: 'Inter', sans-serif
     font-size: 16px
     line-height: 30px
 
-*, *:before, *:after 
-  box-sizing: inherit
+*, *:before, *:after
+    box-sizing: inherit
 
 body
     color: #000
@@ -24,11 +23,11 @@ body
     background-color: $bg
 
 h1, h2, h3, h4, h5
-    font-family: Inika, sans-serif
+    font-family: 'Inter', sans-serif
 
 h1
     font-size: 45px
-    font-weight: bold
+    font-weight: 700
     line-height: 50px
 
 ul
@@ -44,7 +43,9 @@ a
     text-transform: uppercase
     border: 2px solid $orange
     border-radius: 10px
-    padding: 14px 27px
+    padding: 14px 24px
+    line-height: 1
+    font-size: 16px
     transition: all .3s ease
     &:hover
         color: #fff
@@ -58,12 +59,12 @@ a
     display: flex
     margin: 42px 0
     align-items: center
-    font-family: Inika, sans-serif
+    font-family: 'Inika', serif
     line-height: 50px
     justify-content: space-between
     &__list
         display: flex
-        gap: 46px
+        gap: 47px
     &__item_active
         a
             color: $orange
@@ -72,6 +73,20 @@ a
 .welcome
     display: flex
     justify-content: space-between
-                
-
-
+    padding: 62px 0
+    gap: 18%
+    &__image
+        margin-top: -9px
+        margin-left: -9px
+    &__content
+        h1
+            margin-bottom: 42px
+        span
+            color: $green
+        p
+            font-size: 20px
+            color: $dark-gray
+            line-height: 35px
+            margin-bottom: 47px
+        button
+            padding: 12px 24px
