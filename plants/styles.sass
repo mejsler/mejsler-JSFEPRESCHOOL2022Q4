@@ -293,3 +293,26 @@ p
                 background-position: center
                 top: calc(50% - 8px)
                 right: 35px
+
+.footer
+    font-size: 20px
+    line-height: 50px
+    padding: 40px 0
+    background-color: #fff
+    .container
+        display: flex
+        align-items: center
+        justify-content: space-between
+    a
+        transition: all .3s ease 
+        &:hover
+            color: $green
+    svg
+        transition: all .3s ease 
+        &:hover
+            filter: contrast(0)
+    &__social
+        display: flex
+        gap: 20px
+    &__rsschool
+        margin-left: 15px

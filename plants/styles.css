@@ -339,4 +339,35 @@ p {
   background-position: center;
   top: calc(50% - 8px);
   right: 35px;
+}
+
+.footer {
+  font-size: 20px;
+  line-height: 50px;
+  padding: 40px 0;
+  background-color: #fff;
+}
+.footer .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer a {
+  transition: all 0.3s ease;
+}
+.footer a:hover {
+  color: #499A18;
+}
+.footer svg {
+  transition: all 0.3s ease;
+}
+.footer svg:hover {
+  filter: contrast(0);
+}
+.footer__social {
+  display: flex;
+  gap: 20px;
+}
+.footer__rsschool {
+  margin-left: 15px;
 }/*# sourceMappingURL=styles.css.map */
