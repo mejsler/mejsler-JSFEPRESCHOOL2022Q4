@@ -87,8 +87,10 @@ p
         display: flex
         gap: 47px
     &__item
-        a:hover
-            color: $green
+        a
+            transition: all .3s ease
+            &:hover
+                color: $green
         &_active
             a
                 color: $orange
@@ -162,12 +164,15 @@ p
         display: flex
         flex-wrap: wrap
         flex: 0 0 33.333333%
-        gap: 55px 113px
-        justify-content: center
+        row-gap: 55px
+        justify-content: space-between
     &__card
         border: 1px solid #E3E1D5
         border-radius: 20px
         text-align: center
+        transition: box-shadow .3s ease
+        &:hover
+            box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
         h4
             margin: 0
             line-height: 20px
@@ -307,14 +312,14 @@ p
         align-items: center
         justify-content: space-between
     a
-        transition: all .3s ease 
+        transition: all .3s ease
         &:hover
             color: $green
-    svg
-        transition: all .3s ease 
+    img
+        transition: all .3s ease
         &:hover
-            filter: contrast(0)
-    &__social
+            filter: invert(42%) sepia(15%) saturate(5675%) hue-rotate(66deg) brightness(104%) contrast(81%)
+    &__social__list
         display: flex
         gap: 20px
         line-height: 0

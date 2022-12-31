@@ -93,6 +93,9 @@ p {
   display: flex;
   gap: 47px;
 }
+.navbar__item a {
+  transition: all 0.3s ease;
+}
 .navbar__item a:hover {
   color: #499A18;
 }
@@ -185,13 +188,17 @@ p {
   display: flex;
   flex-wrap: wrap;
   flex: 0 0 33.333333%;
-  gap: 55px 113px;
-  justify-content: center;
+  row-gap: 55px;
+  justify-content: space-between;
 }
 .service__card {
   border: 1px solid #E3E1D5;
   border-radius: 20px;
   text-align: center;
+  transition: box-shadow 0.3s ease;
+}
+.service__card:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 .service__card h4 {
   margin: 0;
@@ -362,13 +369,13 @@ p {
 .footer a:hover {
   color: #499A18;
 }
-.footer svg {
+.footer img {
   transition: all 0.3s ease;
 }
-.footer svg:hover {
-  filter: contrast(0);
+.footer img:hover {
+  filter: invert(42%) sepia(15%) saturate(5675%) hue-rotate(66deg) brightness(104%) contrast(81%);
 }
-.footer__social {
+.footer__social__list {
   display: flex;
   gap: 20px;
   line-height: 0;
