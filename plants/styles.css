@@ -153,6 +153,10 @@ p {
 .service {
   margin: 40px 0 121px 0;
 }
+.service .container {
+  display: flex;
+  flex-direction: column;
+}
 .service__nav {
   display: flex;
   align-items: center;
@@ -367,6 +371,7 @@ p {
 .footer__social {
   display: flex;
   gap: 20px;
+  line-height: 0;
 }
 .footer__rsschool {
   margin-left: 15px;
