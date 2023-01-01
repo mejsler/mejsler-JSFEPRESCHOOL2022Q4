@@ -495,4 +495,32 @@ p {
   .prices__heading img {
     margin-top: -14px;
   }
+  .contacts {
+    margin-top: 41px;
+  }
+  .contacts .container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .contacts img {
+    order: 3;
+    max-width: 200px;
+    margin-top: 250px;
+    margin-left: 21px;
+  }
+  .contacts h2 {
+    margin: 0;
+  }
+  .contacts__select {
+    margin-top: 99px;
+  }
+  .footer .container {
+    flex-direction: column;
+    line-height: 1;
+    gap: 23px;
+    padding: 33px 0;
+  }
+  .footer__rsschool {
+    margin: 0;
+  }
 }/*# sourceMappingURL=styles.css.map */
