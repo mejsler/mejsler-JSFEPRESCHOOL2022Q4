@@ -207,13 +207,13 @@ p {
 }
 .service__card h4 {
   margin: 0;
-  line-height: 20px;
+  line-height: 24px;
 }
 .service__card__subtitle {
   color: #717171;
   font-size: 16px;
   margin-bottom: 28px;
-  margin-top: 11px;
+  margin-top: 9px;
 }
 .service__card__img {
   border-top-left-radius: 20px;
@@ -446,6 +446,9 @@ p {
   }
   .service__card {
     flex: 1 1 calc(50% - 106px);
+  }
+  .service__card h4 {
+    line-height: 20px;
   }
   .service__card__img {
     min-height: 350px;
