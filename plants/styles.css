@@ -671,4 +671,29 @@ p {
   .prices__heading img {
     display: none;
   }
+  .contacts {
+    margin-top: 25px;
+  }
+  .contacts .container {
+    justify-content: center;
+  }
+  .contacts__select {
+    margin-top: 82px;
+    max-width: 91%;
+  }
+  .contacts__select span:after {
+    right: 22px;
+  }
+  .contacts img {
+    margin-top: 132px;
+    order: 1;
+    max-width: 100px;
+  }
+  .contacts h2 {
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    font-size: 25px;
+    line-height: 32px;
+  }
 }/*# sourceMappingURL=styles.css.map */
