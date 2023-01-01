@@ -23,6 +23,10 @@ body
     padding: 0
     background-color: $bg
 
+img
+    max-width: 100%
+    height: auto
+
 h1, h2, h3, h4, h5
     font-family: 'Inika', sans-serif
 
@@ -163,12 +167,12 @@ p
     &__list
         display: flex
         flex-wrap: wrap
-        flex: 0 0 33.333333%
-        row-gap: 55px
+        gap: 55px 116px
         justify-content: space-between
     &__card
         border: 1px solid #E3E1D5
         border-radius: 20px
+        flex: 1 0 calc(33.333333% - 116px)
         text-align: center
         transition: box-shadow .3s ease
         &:hover
@@ -176,7 +180,7 @@ p
         h4
             margin: 0
             line-height: 20px
-        p
+        &__subtitle
             color: $gray
             font-size: 16px
             margin-bottom: 28px
@@ -367,3 +371,30 @@ p
         img
             width: 250px
             height: 258px
+    .service
+        margin-top: 60px
+        margin-bottom: 70px
+        &__list
+            gap: 38px 106px
+        &__card
+            flex: 1 1 calc(50% - 106px)
+            &__img
+                min-height: 350px
+                object-fit: cover
+            &__subtitle
+                max-width: 90%
+                text-align: center
+                margin-left: auto
+                margin-right: auto
+                line-height: 20px
+                margin-bottom: 19px
+                margin-top: 11px
+        &__nav
+            flex-direction: column
+            align-items: flex-start
+            margin-bottom: 39px
+            h2
+                font-size: 35px
+                line-height: 45px
+            &__buttons
+                margin-top: 44px
