@@ -13,6 +13,7 @@ html
     font-size: 16px
     line-height: 30px
     scroll-behavior: smooth
+    overflow-x: hidden
 
 *, *:before, *:after
     box-sizing: inherit
@@ -22,7 +23,8 @@ body
     margin: 0
     padding: 0
     background-color: $bg
-
+    overflow-x: hidden
+    
 img
     max-width: 100%
     height: auto
@@ -441,3 +443,33 @@ p
             padding: 33px 0
         &__rsschool
             margin: 0
+    
+@media (max-width: 380px)
+    section, header, .footer
+        padding: 0 25px
+    .navbar__list
+        display: none
+    .container
+        flex-wrap: wrap
+    .navbar
+        margin: 36px 0
+        line-height: 20px
+
+    .welcome
+        .container
+            padding: 23px 0
+        &__image
+            display: none
+        &__content
+            h1
+                font-size: 25px
+                line-height: 35px
+                margin: 0
+            p
+                font-size: 16px
+                line-height: 25px
+                margin-bottom: 28px
+            .button
+                font-size: 10px
+                line-height: 20px
+                padding: 5px 15px

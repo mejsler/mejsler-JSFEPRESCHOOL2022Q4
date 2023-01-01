@@ -5,6 +5,7 @@ html {
   font-size: 16px;
   line-height: 30px;
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 *, *:before, *:after {
@@ -16,6 +17,7 @@ body {
   margin: 0;
   padding: 0;
   background-color: #EDF2EC;
+  overflow-x: hidden;
 }
 
 img {
@@ -525,5 +527,41 @@ p {
   }
   .footer__rsschool {
     margin: 0;
+  }
+}
+@media (max-width: 380px) {
+  section, header, .footer {
+    padding: 0 25px;
+  }
+  .navbar__list {
+    display: none;
+  }
+  .container {
+    flex-wrap: wrap;
+  }
+  .navbar {
+    margin: 36px 0;
+    line-height: 20px;
+  }
+  .welcome .container {
+    padding: 23px 0;
+  }
+  .welcome__image {
+    display: none;
+  }
+  .welcome__content h1 {
+    font-size: 25px;
+    line-height: 35px;
+    margin: 0;
+  }
+  .welcome__content p {
+    font-size: 16px;
+    line-height: 25px;
+    margin-bottom: 28px;
+  }
+  .welcome__content .button {
+    font-size: 10px;
+    line-height: 20px;
+    padding: 5px 15px;
   }
 }/*# sourceMappingURL=styles.css.map */
