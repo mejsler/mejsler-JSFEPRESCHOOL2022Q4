@@ -696,4 +696,17 @@ p {
     font-size: 25px;
     line-height: 32px;
   }
+  .footer {
+    padding-bottom: 12px;
+  }
+  .footer .container {
+    justify-content: center;
+    line-height: 43px;
+  }
+  .footer__rsschool {
+    margin: 0;
+  }
+  .footer__github {
+    padding-top: 9px;
+  }
 }/*# sourceMappingURL=styles.css.map */
