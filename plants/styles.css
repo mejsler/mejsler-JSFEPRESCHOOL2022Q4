@@ -439,7 +439,7 @@ p {
   }
   .service {
     margin-top: 60px;
-    margin-bottom: 70px;
+    margin-bottom: 68px;
   }
   .service__list {
     gap: 38px 106px;
@@ -472,5 +472,27 @@ p {
   }
   .service__nav__buttons {
     margin-top: 44px;
+  }
+  .prices .container {
+    gap: unset;
+    padding-bottom: 80px;
+    padding-top: 42px;
+  }
+  .prices__accordion h2 {
+    font-size: 39px;
+    line-height: 37px;
+    margin-left: 13px;
+    letter-spacing: -2px;
+  }
+  .prices__heading {
+    margin-top: 98px;
+  }
+  .prices__heading h3 {
+    font-size: 25px;
+    line-height: 35px;
+    margin-bottom: 28px;
+  }
+  .prices__heading img {
+    margin-top: -14px;
   }
 }/*# sourceMappingURL=styles.css.map */
