@@ -428,7 +428,8 @@ p {
 .footer {
   font-size: 20px;
   line-height: 50px;
-  padding: 40px 0;
+  padding-top: 40px;
+  padding-bottom: 40px;
   background-color: #fff;
 }
 .footer .container {
@@ -457,7 +458,7 @@ p {
   margin-left: 15px;
 }
 
-@media (max-width: 768px) and (min-width: 381px) {
+@media (max-width: 1100px) and (min-width: 651px) {
   section, header, .footer {
     padding: 0 50px;
   }
@@ -595,13 +596,31 @@ p {
     margin: 0;
   }
 }
-@media (max-width: 380px) {
+@media (max-width: 650px) {
+  section, header, .footer {
+    padding: 0 25px;
+  }
   .container {
     flex-wrap: wrap;
   }
   .navbar {
     margin: 34px 0 38px;
     line-height: 20px;
+  }
+  .navbar__menu {
+    max-height: none;
+    opacity: 0;
+    width: 100%;
+    border-bottom: 2px solid #499A18;
+    margin: 15px 0;
+    padding: 15px 0;
+    position: absolute;
+    top: 25px;
+    background: #EDF2EC;
+    visibility: hidden;
+  }
+  .navbar__menu_btn {
+    display: block;
   }
   .welcome .container {
     padding: 23px 0;
@@ -762,30 +781,14 @@ p {
     padding-top: 0;
   }
   .footer .container {
-    justify-content: center;
     line-height: 43px;
+    justify-content: space-around;
+    flex-wrap: wrap;
   }
   .footer__rsschool {
     margin: 0;
   }
   .footer__github {
     padding-top: 9px;
-  }
-}
-@media (max-width: 650px) {
-  .navbar__menu {
-    max-height: none;
-    opacity: 0;
-    width: 100%;
-    border-bottom: 2px solid #499A18;
-    margin: 15px 0;
-    padding: 15px 0;
-    position: absolute;
-    top: 25px;
-    background: #EDF2EC;
-    visibility: hidden;
-  }
-  .navbar__menu_btn {
-    display: block;
   }
 }/*# sourceMappingURL=styles.css.map */
