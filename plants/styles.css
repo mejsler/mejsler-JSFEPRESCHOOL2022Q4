@@ -20,6 +20,10 @@ body {
   overflow-x: hidden;
 }
 
+section, header, .footer {
+  padding: 0 25px;
+}
+
 img {
   max-width: 100%;
   height: auto;
@@ -90,15 +94,77 @@ p {
 
 .navbar {
   display: flex;
+  flex-wrap: wrap;
   margin: 42px 0;
   align-items: center;
   font-family: "Inika", serif;
   line-height: 50px;
+  position: relative;
   justify-content: space-between;
 }
-.navbar__list {
+.navbar__menu {
   display: flex;
-  gap: 47px;
+  flex-wrap: wrap;
+  gap: 15px 47px;
+  overflow: hidden;
+  transition: all 0.3s ease-out;
+  justify-content: space-between;
+}
+.navbar__menu_btn.open::before, .navbar__menu_btn.open::after {
+  background-color: transparent;
+}
+.navbar__menu_btn.open span::before {
+  transform: rotate(-45deg);
+  top: 15px;
+}
+.navbar__menu_btn.open span::after {
+  transform: rotate(45deg);
+}
+.navbar__menu_btn {
+  display: none;
+  border: none;
+  padding: 0;
+  width: 40px;
+  height: 28px;
+  position: relative;
+}
+.navbar__menu_btn::before, .navbar__menu_btn::after {
+  content: "";
+  width: 40px;
+  height: 2px;
+  display: block;
+  background-color: #717171;
+  position: absolute;
+  transition: background-color 0.2s ease-out;
+}
+.navbar__menu_btn::before {
+  top: 0;
+}
+.navbar__menu_btn::after {
+  bottom: 2px;
+}
+.navbar__menu_btn span {
+  display: block;
+}
+.navbar__menu_btn span::before, .navbar__menu_btn span::after {
+  content: "";
+  width: 40px;
+  height: 2px;
+  display: block;
+  background-color: #717171;
+  position: absolute;
+  transition: transform 0.2s ease-out;
+}
+.navbar__menu_btn span::after {
+  bottom: 10px;
+}
+.navbar__menu_btn span::before {
+  top: 8px;
+}
+.navbar__menu.open {
+  max-height: 150px;
+  opacity: 1;
+  visibility: visible;
 }
 .navbar__item a {
   transition: all 0.3s ease;
@@ -530,17 +596,11 @@ p {
   }
 }
 @media (max-width: 380px) {
-  section, header, .footer {
-    padding: 0 25px;
-  }
-  .navbar__list {
-    display: none;
-  }
   .container {
     flex-wrap: wrap;
   }
   .navbar {
-    margin: 36px 0;
+    margin: 34px 0 38px;
     line-height: 20px;
   }
   .welcome .container {
@@ -557,7 +617,8 @@ p {
   .welcome__content p {
     font-size: 16px;
     line-height: 25px;
-    margin-bottom: 28px;
+    margin-bottom: 25px;
+    margin-top: 19px;
   }
   .welcome__content .button {
     font-size: 10px;
@@ -698,6 +759,7 @@ p {
   }
   .footer {
     padding-bottom: 12px;
+    padding-top: 0;
   }
   .footer .container {
     justify-content: center;
@@ -708,5 +770,22 @@ p {
   }
   .footer__github {
     padding-top: 9px;
+  }
+}
+@media (max-width: 650px) {
+  .navbar__menu {
+    max-height: none;
+    opacity: 0;
+    width: 100%;
+    border-bottom: 2px solid #499A18;
+    margin: 15px 0;
+    padding: 15px 0;
+    position: absolute;
+    top: 25px;
+    background: #EDF2EC;
+    visibility: hidden;
+  }
+  .navbar__menu_btn {
+    display: block;
   }
 }/*# sourceMappingURL=styles.css.map */

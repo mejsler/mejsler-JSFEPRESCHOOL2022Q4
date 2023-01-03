@@ -8,7 +8,6 @@
   <link rel="icon" href="./img/favicon.ico">
   <link href="styles.css" rel="stylesheet">
   <title>Plants</title>
-  <script src="index.js"></script>
 </head>
 
 <body>
@@ -18,7 +17,9 @@
         <div class="navbar__logo">
           <a href="#"><img src="./img/logo.svg" alt="Plants logo"></a>
         </div>
-        <ul class="navbar__list">
+
+        <button class="navbar__menu_btn" id="menuBtn"><span></span></button>
+        <ul class="navbar__menu" id="menu">
           <li class="navbar__item navbar__item_active">
             <a href="#welcome">Home</a>
           </li>
@@ -34,7 +35,8 @@
           <li class="navbar__item">
             <a href="#contacts">Contacts</a>
           </li>
-        </ul>
+        </ul> 
+       
       </nav>
     </div>
   </header>
@@ -169,5 +171,5 @@
     </div>
   </footer>
 </body>
-
+<script src="index.js"></script>
 </html>

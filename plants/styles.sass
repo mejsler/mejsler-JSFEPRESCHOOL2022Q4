@@ -25,6 +25,9 @@ body
     background-color: $bg
     overflow-x: hidden
 
+section, header, .footer
+    padding: 0 25px
+
 img
     max-width: 100%
     height: auto
@@ -84,14 +87,66 @@ p
 
 .navbar
     display: flex
+    flex-wrap: wrap
     margin: 42px 0
     align-items: center
     font-family: 'Inika', serif
     line-height: 50px
+    position: relative
     justify-content: space-between
-    &__list
+    &__menu
         display: flex
-        gap: 47px
+        flex-wrap: wrap
+        gap: 15px 47px
+        overflow: hidden
+        transition: all .3s ease-out
+        justify-content: space-between
+        &_btn.open
+            &::before, &::after
+                background-color: transparent
+            span
+                &::before
+                    transform: rotate(-45deg)
+                    top: 15px
+                &::after
+                    transform: rotate(45deg)
+        &_btn
+            display: none
+            border: none
+            padding: 0
+            width: 40px
+            height: 28px
+            position: relative
+            &::before, &::after
+                content: ''
+                width: 40px
+                height: 2px
+                display: block
+                background-color: $gray
+                position: absolute
+                transition: background-color .2s ease-out
+            &::before
+                top: 0
+            &::after
+                bottom: 2px
+            span
+                display: block
+                &::before, &::after
+                    content: ''
+                    width: 40px
+                    height: 2px
+                    display: block
+                    background-color: $gray
+                    position: absolute
+                    transition: transform .2s ease-out
+                &::after
+                    bottom: 10px
+                &::before
+                    top: 8px
+    &__menu.open
+        max-height: 150px
+        opacity: 1
+        visibility: visible
     &__item
         a
             transition: all .3s ease
@@ -445,14 +500,10 @@ p
             margin: 0
 
 @media (max-width: 380px)
-    section, header, .footer
-        padding: 0 25px
-    .navbar__list
-        display: none
     .container
         flex-wrap: wrap
     .navbar
-        margin: 36px 0
+        margin: 34px 0 38px
         line-height: 20px
 
     .welcome
@@ -468,7 +519,8 @@ p
             p
                 font-size: 16px
                 line-height: 25px
-                margin-bottom: 28px
+                margin-bottom: 25px
+                margin-top: 19px
             .button
                 font-size: 10px
                 line-height: 20px
@@ -579,6 +631,7 @@ p
             line-height: 32px
     .footer
         padding-bottom: 12px
+        padding-top: 0
         .container
             justify-content: center
             line-height: 43px
@@ -586,3 +639,21 @@ p
             margin: 0
         &__github
             padding-top: 9px
+            
+
+@media (max-width: 650px) 
+    .navbar__menu 
+        max-height: none
+        opacity: 0
+        width: 100%
+        border-bottom: 2px solid $green
+        margin: 15px 0
+        padding: 15px 0
+        position: absolute
+        top: 25px
+        background: $bg
+        visibility: hidden
+        &_btn 
+            display: block
+
+
