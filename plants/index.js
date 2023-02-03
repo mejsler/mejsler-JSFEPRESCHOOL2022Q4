@@ -2,6 +2,7 @@ const menu = document.querySelector('#menu');
 const menuBtn = document.querySelector('#menuBtn');
 const serviceBtns = document.querySelector('.service__nav__buttons');
 const serviceList = document.querySelector('.service__list');
+const priceItems = document.querySelectorAll('.prices__accordion__item');
 
 menuBtn.addEventListener(
   'click',
@@ -48,6 +49,20 @@ serviceBtns.addEventListener('click', (event) => {
     }
   }
 });
+
+priceItems.forEach((item) =>
+  item.addEventListener('click', function (event) {
+    priceItems.forEach((item) => {
+      if (this === item && event.target.tagName !== 'A') {
+        this.classList.toggle('open');
+        return;
+      }
+      if (event.target.tagName !== 'A') {
+        item.classList.remove('open');
+      }
+    });
+  })
+);
 
 // console.log("✓ 1. Вёрстка валидная +10 \n✓ 2. Вёрстка семантическая +20\n✓ 3. Вёрстка соответствует макету +48\n✓ 4. Требования к css + 12\n✓ 5. Интерактивность, реализуемая через css +20\n Самоценка за задание: 110 баллов")
 // console.log(

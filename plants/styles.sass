@@ -300,11 +300,38 @@ p
             &:last-of-type
                 margin-bottom: 0
             &_content
-                margin-top: 10px
-                border-top: .5px solid #AEA1A1
+                transition: max-height .5s linear, margin .2s linear, border .2s linear, background-color .5s linear
+                overflow: hidden
+                max-height: 0px
+                div
+                    font-size: 12px
+                    line-height: 12px
+                    font-weight: 400
+                    margin-top: 6px
+                    margin-bottom: 10px
+                span
+                    font-size: 18px
+                    color: $orange
+                    font-weight: bold
+                    span
+                        font-size: 12px
+                a
+                    padding: 3px 0
+                    background-color: #fff
+                    font-size: 14px
+                    transition: all .3s ease
+                    border-radius: 10px
+                    display: block
+                    width: fit-content
+                    padding-left: 20px
+                    padding-right: 25px
+                    &:hover
+                        background-color: $green
+                        color: #fff
             h4
                 position: relative
                 margin: 0
+                color: #000
                 &::after
                     content: ''
                     background-image: url("data:image/svg+xml,%3Csvg width='6' height='4' viewBox='0 0 6 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.00003 3.00656L1.00003 1.00667' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M3 3.00635L5 1.00635' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E%0A")
@@ -316,11 +343,22 @@ p
                     border-radius: 50px
                     background-position: center
                     top: calc(50% - 8px)
-                    right: 0
+                    right: -2px
+                    top: 4px
             p
                 font-size: 10px
                 line-height: 10px
                 font-weight: 400
+                margin-top: 5px
+        &__item.open
+            background-color: #D6E7D2
+            h4::after
+                transform: rotate(-180deg)
+                background-color: #AEA1A1
+            .prices__accordion__item_content
+                margin-top: 10px
+                border-top: .5px solid #AEA1A1
+                max-height: 500px
     &__heading
         text-align: right
         h3
