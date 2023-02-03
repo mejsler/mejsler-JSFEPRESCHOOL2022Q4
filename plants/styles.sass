@@ -68,6 +68,9 @@ p
     line-height: 30px
     color: $dark-gray
 
+.blur
+    filter: blur(4px)
+
 .button
     text-transform: uppercase
     border: 2px solid $orange
@@ -77,7 +80,7 @@ p
     font-size: 16px
     transition: all .3s ease
     cursor: pointer
-    &:hover
+    &:hover, &:focus
         color: #fff
         background-color: $orange
 
@@ -210,28 +213,50 @@ p
             display: flex
             gap: 38px
             margin-top: 5px
+            .button.active
+                color: #fff
+                background-color: $green
+                border-color: $green
             .button
                 text-transform: none
                 border-radius: 5px
                 width: 161px
                 border: 1px solid $orange
+                background-color: $bg
                 font-family: 'Inika', serif
                 color: $orange
                 font-size: 20px
                 line-height: 20px
                 &:hover
                     color: #fff
+                    background-color: $orange
+
     &__list
         display: flex
         flex-wrap: wrap
         gap: 55px 116px
         justify-content: space-between
+    &__list.active
+        .service__card
+            filter: blur(4px)
+    &__list.active.gardens
+        .service__card
+            &:nth-of-type(1),&:nth-of-type(5)
+                filter: none
+    &__list.active.lawn
+        .service__card
+            &:nth-of-type(3)
+                filter: none
+    &__list.active.planting
+        .service__card
+            &:nth-of-type(2),&:nth-of-type(4),&:nth-of-type(6)
+                filter: none
     &__card
         border: 1px solid #E3E1D5
         border-radius: 20px
         flex: 1 0 calc(33.333333% - 116px)
         text-align: center
-        transition: box-shadow .3s ease
+        transition: all .5s ease
         &:hover
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
         h4
@@ -255,7 +280,7 @@ p
             line-height: 48px
             margin-bottom: 59px
             color: #000
-        ul
+        .prices__accordion_container
             padding: 34px 41px
             border-radius: 20px
             border: 1px solid #E3E1D5
@@ -267,7 +292,6 @@ p
             margin-bottom: 30px
             padding: 16px 40px
             background-color: $bg
-            position: relative
             width: 248px
             transition: background-color .3s ease
             cursor: pointer
@@ -275,18 +299,28 @@ p
                 background-color: #D6E7D2
             &:last-of-type
                 margin-bottom: 0
-            &::after
-                content: ''
-                background-image: url("data:image/svg+xml,%3Csvg width='6' height='4' viewBox='0 0 6 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.00003 3.00656L1.00003 1.00667' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M3 3.00635L5 1.00635' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E%0A")
-                background-repeat: no-repeat
-                background-color: #D9D9D9
-                width: 16px
-                height: 16px
-                position: absolute
-                border-radius: 50px
-                background-position: center
-                top: calc(50% - 8px)
-                right: 40px
+            &_content
+                margin-top: 10px
+                border-top: .5px solid #AEA1A1
+            h4
+                position: relative
+                margin: 0
+                &::after
+                    content: ''
+                    background-image: url("data:image/svg+xml,%3Csvg width='6' height='4' viewBox='0 0 6 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.00003 3.00656L1.00003 1.00667' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M3 3.00635L5 1.00635' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E%0A")
+                    background-repeat: no-repeat
+                    background-color: #D9D9D9
+                    width: 16px
+                    height: 16px
+                    position: absolute
+                    border-radius: 50px
+                    background-position: center
+                    top: calc(50% - 8px)
+                    right: 0
+            p
+                font-size: 10px
+                line-height: 10px
+                font-weight: 400
     &__heading
         text-align: right
         h3

@@ -72,6 +72,10 @@ p {
   color: #636060;
 }
 
+.blur {
+  filter: blur(4px);
+}
+
 .button {
   text-transform: uppercase;
   border: 2px solid #E06733;
@@ -82,7 +86,7 @@ p {
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.button:hover {
+.button:hover, .button:focus {
   color: #fff;
   background-color: #E06733;
 }
@@ -244,11 +248,17 @@ p {
   gap: 38px;
   margin-top: 5px;
 }
+.service__nav__buttons .button.active {
+  color: #fff;
+  background-color: #499A18;
+  border-color: #499A18;
+}
 .service__nav__buttons .button {
   text-transform: none;
   border-radius: 5px;
   width: 161px;
   border: 1px solid #E06733;
+  background-color: #EDF2EC;
   font-family: "Inika", serif;
   color: #E06733;
   font-size: 20px;
@@ -256,6 +266,7 @@ p {
 }
 .service__nav__buttons .button:hover {
   color: #fff;
+  background-color: #E06733;
 }
 .service__list {
   display: flex;
@@ -263,12 +274,24 @@ p {
   gap: 55px 116px;
   justify-content: space-between;
 }
+.service__list.active .service__card {
+  filter: blur(4px);
+}
+.service__list.active.gardens .service__card:nth-of-type(1), .service__list.active.gardens .service__card:nth-of-type(5) {
+  filter: none;
+}
+.service__list.active.lawn .service__card:nth-of-type(3) {
+  filter: none;
+}
+.service__list.active.planting .service__card:nth-of-type(2), .service__list.active.planting .service__card:nth-of-type(4), .service__list.active.planting .service__card:nth-of-type(6) {
+  filter: none;
+}
 .service__card {
   border: 1px solid #E3E1D5;
   border-radius: 20px;
   flex: 1 0 calc(33.333333% - 116px);
   text-align: center;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.5s ease;
 }
 .service__card:hover {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -298,7 +321,7 @@ p {
   margin-bottom: 59px;
   color: #000;
 }
-.prices__accordion ul {
+.prices__accordion .prices__accordion_container {
   padding: 34px 41px;
   border-radius: 20px;
   border: 1px solid #E3E1D5;
@@ -311,7 +334,6 @@ p {
   margin-bottom: 30px;
   padding: 16px 40px;
   background-color: #EDF2EC;
-  position: relative;
   width: 248px;
   transition: background-color 0.3s ease;
   cursor: pointer;
@@ -322,7 +344,15 @@ p {
 .prices__accordion__item:last-of-type {
   margin-bottom: 0;
 }
-.prices__accordion__item::after {
+.prices__accordion__item_content {
+  margin-top: 10px;
+  border-top: 0.5px solid #AEA1A1;
+}
+.prices__accordion__item h4 {
+  position: relative;
+  margin: 0;
+}
+.prices__accordion__item h4::after {
   content: "";
   background-image: url("data:image/svg+xml,%3Csvg width='6' height='4' viewBox='0 0 6 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.00003 3.00656L1.00003 1.00667' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M3 3.00635L5 1.00635' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
@@ -333,7 +363,12 @@ p {
   border-radius: 50px;
   background-position: center;
   top: calc(50% - 8px);
-  right: 40px;
+  right: 0;
+}
+.prices__accordion__item p {
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 400;
 }
 .prices__heading {
   text-align: right;
