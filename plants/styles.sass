@@ -68,6 +68,9 @@ p
     line-height: 30px
     color: $dark-gray
 
+.blur
+    filter: blur(4px)
+
 .button
     text-transform: uppercase
     border: 2px solid $orange
@@ -77,7 +80,7 @@ p
     font-size: 16px
     transition: all .3s ease
     cursor: pointer
-    &:hover
+    &:hover, &:focus
         color: #fff
         background-color: $orange
 
@@ -210,28 +213,49 @@ p
             display: flex
             gap: 38px
             margin-top: 5px
+            .button.active
+                color: #fff
+                background-color: $green
+                border-color: $green
             .button
                 text-transform: none
                 border-radius: 5px
                 width: 161px
                 border: 1px solid $orange
+                background-color: $bg
                 font-family: 'Inika', serif
                 color: $orange
                 font-size: 20px
                 line-height: 20px
                 &:hover
                     color: #fff
+                    background-color: $orange
     &__list
         display: flex
         flex-wrap: wrap
         gap: 55px 116px
         justify-content: space-between
+    &__list.active
+        .service__card
+            filter: blur(4px)
+    &__list.active.gardens
+        .service__card
+            &:nth-of-type(1),&:nth-of-type(5)
+                filter: none
+    &__list.active.lawn
+        .service__card
+            &:nth-of-type(3)
+                filter: none
+    &__list.active.planting
+        .service__card
+            &:nth-of-type(2),&:nth-of-type(4),&:nth-of-type(6)
+                filter: none
     &__card
         border: 1px solid #E3E1D5
         border-radius: 20px
         flex: 1 0 calc(33.333333% - 116px)
         text-align: center
-        transition: box-shadow .3s ease
+        transition: all .5s ease
         &:hover
             box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
         h4
@@ -255,7 +279,7 @@ p
             line-height: 48px
             margin-bottom: 59px
             color: #000
-        ul
+        .prices__accordion_container
             padding: 34px 41px
             border-radius: 20px
             border: 1px solid #E3E1D5
@@ -267,7 +291,6 @@ p
             margin-bottom: 30px
             padding: 16px 40px
             background-color: $bg
-            position: relative
             width: 248px
             transition: background-color .3s ease
             cursor: pointer
@@ -275,18 +298,66 @@ p
                 background-color: #D6E7D2
             &:last-of-type
                 margin-bottom: 0
-            &::after
-                content: ''
-                background-image: url("data:image/svg+xml,%3Csvg width='6' height='4' viewBox='0 0 6 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.00003 3.00656L1.00003 1.00667' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M3 3.00635L5 1.00635' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E%0A")
-                background-repeat: no-repeat
-                background-color: #D9D9D9
-                width: 16px
-                height: 16px
-                position: absolute
-                border-radius: 50px
-                background-position: center
-                top: calc(50% - 8px)
-                right: 40px
+            &_content
+                transition: max-height .5s linear, margin .2s linear, border .2s linear, background-color .5s linear
+                overflow: hidden
+                max-height: 0px
+                div
+                    font-size: 12px
+                    line-height: 12px
+                    font-weight: 400
+                    margin-top: 6px
+                    margin-bottom: 10px
+                span
+                    font-size: 18px
+                    color: $orange
+                    font-weight: bold
+                    span
+                        font-size: 12px
+                a
+                    padding: 3px 0
+                    background-color: #fff
+                    font-size: 14px
+                    transition: all .3s ease
+                    border-radius: 10px
+                    display: block
+                    width: fit-content
+                    padding-left: 20px
+                    padding-right: 25px
+                    &:hover
+                        background-color: $green
+                        color: #fff
+            h4
+                position: relative
+                margin: 0
+                color: #000
+                &::after
+                    content: ''
+                    background-image: url("data:image/svg+xml,%3Csvg width='6' height='4' viewBox='0 0 6 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.00003 3.00656L1.00003 1.00667' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M3 3.00635L5 1.00635' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E%0A")
+                    background-repeat: no-repeat
+                    background-color: #D9D9D9
+                    width: 16px
+                    height: 16px
+                    position: absolute
+                    border-radius: 50px
+                    background-position: center
+                    top: calc(50% - 8px)
+                    right: -2px
+                    top: 4px
+            p
+                font-size: 10px
+                line-height: 10px
+                font-weight: 400
+                margin-top: 5px
+        &__item.open
+            background-color: #D6E7D2
+            h4::after
+                transform: rotate(-180deg)
+                background-color: #AEA1A1
+            .prices__accordion__item_content
+                margin-top: 10px
+                border-top: .5px solid #AEA1A1
+                max-height: 500px
     &__heading
         text-align: right
         h3
@@ -332,27 +403,96 @@ p
         margin-left: 45px
         margin-top: 7px
         font-weight: bold
+    &__info
+        background-color: $bg
+        border-radius: 20px
+        border: 1px solid #000
+        padding: 17px 76px 25px 33px
+        cursor: text
+        margin-top: 35px
+        transition: opacity .5s ease
+        visibility: hidden
+        opacity: 0
+        button
+            font-size: 10px
+            font-weight: bold
+            border-radius: 5px
+            border: 1px solid $orange
+            transition: background-color .3s ease
+            margin-top: 17px
+            cursor: pointer
+            &:hover
+                background-color: $orange
+            a
+                padding: 7px 42px
+                display: block
+        tr td
+            line-height: 35px
+            &:nth-of-type(2)
+                color: #717171
+                padding-left: 19px
+    &__info.open
+        opacity: 1
+        visibility: visible
+    &__list
+        padding: 27px 41px
+        background-color: #DCE9D9
+        transition: all .5s linear
+        max-height: 0%
+        visibility: hidden
+        position: absolute
+        width: 100%
+        ul li
+            line-height: 46px
+            color: $green
+            letter-spacing: 1px
+            transition: opacity .3s linear
+            position: relative
+            opacity: 0
+            &::after
+                content: ''
+                height: 1px
+                background-color: #717171
+                position: absolute
+                bottom: 11px
+                left: -6px
+                transition: width .3s linear
+                width: 0px
+            &:hover
+                color: #717171
+                &::after
+                    width: 104%
+    &__list.open
+        max-height: 500px
+        visibility: visible
+        ul li
+            opacity: 1
     &__select
-        box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25)
         background-color: #D6E7D2
         position: relative
         width: 450px
         height: 50px
         margin-top: 95px
-        display: flex
-        align-items: center
         transition: background-color .3s ease
         cursor: pointer
-        &:hover
-            background-color: $bg
+        &:hover, &:active
+            background-color: #C1E698
+        &:has(.open)
+            background-color: #C1E698
+            span::after
+                transform: rotate(-180deg)
+        .selected
+            display: flex
+            align-items: center
+            height: 100%
+            margin: 0 35px
         span
             font-size: 20px
-            margin-left: 20px
             color: $gray
             letter-spacing: 1px
             &::after
                 content: ''
-                background-image: url("data:image/svg+xml,%3Csvg width='6' height='4' viewBox='0 0 6 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.00003 3.00656L1.00003 1.00667' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M3 3.00635L5 1.00635' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E%0A")
+                background-image: url("data:image/svg+xml,%3Csvg width='6' height='4' viewBox='0 0 6 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.00003 3.00656L1.00003 1.00667' stroke='%23FFFFFF' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M3 3.00635L5 1.00635' stroke='%23FFFFFF' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E%0A")
                 background-repeat: no-repeat
                 background-color: #AEA1A1
                 width: 16px
@@ -635,7 +775,7 @@ p
             span:after
                 right: 22px
         img
-            margin-top: 132px
+            margin-top: 262px
             order: 1
             max-width: 100px
         h2
