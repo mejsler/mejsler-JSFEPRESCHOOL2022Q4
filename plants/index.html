@@ -80,9 +80,9 @@
           </h2>
 
           <ul class="service__nav__buttons">
-            <li><button type="button" class="button">Gardens</button></li>
-            <li><button type="button" class="button">Lawn</button></li>
-            <li><button type="button" class="button">Planting</button></li>
+            <li><button type="button" class="button" id="gardens">Gardens</button></li>
+            <li><button type="button" class="button" id="lawn">Lawn</button></li>
+            <li><button type="button" class="button" id="planting">Planting</button></li>
           </ul>
         </div>
         <div class="service__list">
@@ -123,11 +123,32 @@
       <div class="container">
         <div class="prices__accordion">
           <h2>Prices</h2>
-          <ul>
-            <li class="prices__accordion__item">Basics</li>
-            <li class="prices__accordion__item">Standard</li>
-            <li class="prices__accordion__item">Pro care</li>
-          </ul>
+          <div class="prices__accordion_container">
+            <div class="prices__accordion__item">
+              <h4>Basics</h4>
+              <div class="prices__accordion__item_content">
+                <p>Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
+                <div><span><span>$</span>15</span> / per hour</div>
+                <a href="#contacts">Order</a>
+              </div>
+            </div>
+            <div class="prices__accordion__item">
+              <h4>Standard</h4>
+              <div class="prices__accordion__item_content">
+                <p>Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
+                <div><span><span>$</span>25</span> / per hour</div>
+                <a href="#contacts">Order</a>
+              </div>
+            </div>
+            <div class="prices__accordion__item">
+              <h4>Pro care</h4>
+              <div class="prices__accordion__item_content">
+                <p>Release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>
+                <div><span><span>$</span>35</span> / per hour</div>
+                <a href="#contacts">Order</a>
+              </div>
+            </div>
+          </div>
         </div>
         <div class="prices__heading">
           <h3>Our best <span>gardeners</span> are ready to help you</h3>
@@ -140,7 +161,39 @@
       <div class="container">
         <img src="./img/contact_woman.png" alt="Contact us">
         <h2>Contact us</h2>
-        <div class="contacts__select"><span>City</span></div>
+        <div class="contacts__select">
+          <div class="selected"><span class="kek">City</span></div>
+          <div class="contacts__list">
+            <ul>
+              <li>Canandaigua, NY</li>
+              <li>New York City</li>
+              <li>Yonkers, NY</li>
+              <li>Sherrill, NY</li>
+            </ul>
+          </div>
+          <div class="contacts__info">
+            <table>
+              <tbody>
+                <tr>
+                  <td>City:</td>
+                  <td class="data">Yonkers, NY</td>
+                </tr>
+                <tr>
+                  <td>Phone:</td>
+                  <td class="data">+1 914 678 0003</td>
+                </tr>
+                <tr>
+                  <td>Office adress:</td>
+                  <td class="data">511 Warburton Ave</td>
+                </tr>
+                <tr>
+                  <td>&nbsp</td>
+                  <td><button><a class="data" href="#">Call us</a></button></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </section>
   </main>

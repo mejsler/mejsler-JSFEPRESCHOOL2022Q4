@@ -72,6 +72,10 @@ p {
   color: #636060;
 }
 
+.blur {
+  filter: blur(4px);
+}
+
 .button {
   text-transform: uppercase;
   border: 2px solid #E06733;
@@ -82,7 +86,7 @@ p {
   transition: all 0.3s ease;
   cursor: pointer;
 }
-.button:hover {
+.button:hover, .button:focus {
   color: #fff;
   background-color: #E06733;
 }
@@ -244,11 +248,17 @@ p {
   gap: 38px;
   margin-top: 5px;
 }
+.service__nav__buttons .button.active {
+  color: #fff;
+  background-color: #499A18;
+  border-color: #499A18;
+}
 .service__nav__buttons .button {
   text-transform: none;
   border-radius: 5px;
   width: 161px;
   border: 1px solid #E06733;
+  background-color: #EDF2EC;
   font-family: "Inika", serif;
   color: #E06733;
   font-size: 20px;
@@ -256,6 +266,7 @@ p {
 }
 .service__nav__buttons .button:hover {
   color: #fff;
+  background-color: #E06733;
 }
 .service__list {
   display: flex;
@@ -263,12 +274,24 @@ p {
   gap: 55px 116px;
   justify-content: space-between;
 }
+.service__list.active .service__card {
+  filter: blur(4px);
+}
+.service__list.active.gardens .service__card:nth-of-type(1), .service__list.active.gardens .service__card:nth-of-type(5) {
+  filter: none;
+}
+.service__list.active.lawn .service__card:nth-of-type(3) {
+  filter: none;
+}
+.service__list.active.planting .service__card:nth-of-type(2), .service__list.active.planting .service__card:nth-of-type(4), .service__list.active.planting .service__card:nth-of-type(6) {
+  filter: none;
+}
 .service__card {
   border: 1px solid #E3E1D5;
   border-radius: 20px;
   flex: 1 0 calc(33.333333% - 116px);
   text-align: center;
-  transition: box-shadow 0.3s ease;
+  transition: all 0.5s ease;
 }
 .service__card:hover {
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -298,7 +321,7 @@ p {
   margin-bottom: 59px;
   color: #000;
 }
-.prices__accordion ul {
+.prices__accordion .prices__accordion_container {
   padding: 34px 41px;
   border-radius: 20px;
   border: 1px solid #E3E1D5;
@@ -311,7 +334,6 @@ p {
   margin-bottom: 30px;
   padding: 16px 40px;
   background-color: #EDF2EC;
-  position: relative;
   width: 248px;
   transition: background-color 0.3s ease;
   cursor: pointer;
@@ -322,7 +344,49 @@ p {
 .prices__accordion__item:last-of-type {
   margin-bottom: 0;
 }
-.prices__accordion__item::after {
+.prices__accordion__item_content {
+  transition: max-height 0.5s linear, margin 0.2s linear, border 0.2s linear, background-color 0.5s linear;
+  overflow: hidden;
+  max-height: 0px;
+}
+.prices__accordion__item_content div {
+  font-size: 12px;
+  line-height: 12px;
+  font-weight: 400;
+  margin-top: 6px;
+  margin-bottom: 10px;
+}
+.prices__accordion__item_content span {
+  font-size: 18px;
+  color: #E06733;
+  font-weight: bold;
+}
+.prices__accordion__item_content span span {
+  font-size: 12px;
+}
+.prices__accordion__item_content a {
+  padding: 3px 0;
+  background-color: #fff;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  border-radius: 10px;
+  display: block;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  padding-left: 20px;
+  padding-right: 25px;
+}
+.prices__accordion__item_content a:hover {
+  background-color: #499A18;
+  color: #fff;
+}
+.prices__accordion__item h4 {
+  position: relative;
+  margin: 0;
+  color: #000;
+}
+.prices__accordion__item h4::after {
   content: "";
   background-image: url("data:image/svg+xml,%3Csvg width='6' height='4' viewBox='0 0 6 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.00003 3.00656L1.00003 1.00667' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M3 3.00635L5 1.00635' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
@@ -333,7 +397,26 @@ p {
   border-radius: 50px;
   background-position: center;
   top: calc(50% - 8px);
-  right: 40px;
+  right: -2px;
+  top: 4px;
+}
+.prices__accordion__item p {
+  font-size: 10px;
+  line-height: 10px;
+  font-weight: 400;
+  margin-top: 5px;
+}
+.prices__accordion__item.open {
+  background-color: #D6E7D2;
+}
+.prices__accordion__item.open h4::after {
+  transform: rotate(-180deg);
+  background-color: #AEA1A1;
+}
+.prices__accordion__item.open .prices__accordion__item_content {
+  margin-top: 10px;
+  border-top: 0.5px solid #AEA1A1;
+  max-height: 500px;
 }
 .prices__heading {
   text-align: right;
@@ -390,30 +473,116 @@ p {
   margin-top: 7px;
   font-weight: bold;
 }
+.contacts__info {
+  background-color: #EDF2EC;
+  border-radius: 20px;
+  border: 1px solid #000;
+  padding: 17px 76px 25px 33px;
+  cursor: text;
+  margin-top: 35px;
+  transition: opacity 0.5s ease;
+  visibility: hidden;
+  opacity: 0;
+}
+.contacts__info button {
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 5px;
+  border: 1px solid #E06733;
+  transition: background-color 0.3s ease;
+  margin-top: 17px;
+  cursor: pointer;
+}
+.contacts__info button:hover {
+  background-color: #E06733;
+}
+.contacts__info button a {
+  padding: 7px 42px;
+  display: block;
+}
+.contacts__info tr td {
+  line-height: 35px;
+}
+.contacts__info tr td:nth-of-type(2) {
+  color: #717171;
+  padding-left: 19px;
+}
+.contacts__info.open {
+  opacity: 1;
+  visibility: visible;
+}
+.contacts__list {
+  padding: 27px 41px;
+  background-color: #DCE9D9;
+  transition: all 0.5s linear;
+  max-height: 0%;
+  visibility: hidden;
+  position: absolute;
+  width: 100%;
+}
+.contacts__list ul li {
+  line-height: 46px;
+  color: #499A18;
+  letter-spacing: 1px;
+  transition: opacity 0.3s linear;
+  position: relative;
+  opacity: 0;
+}
+.contacts__list ul li::after {
+  content: "";
+  height: 1px;
+  background-color: #717171;
+  position: absolute;
+  bottom: 11px;
+  left: -6px;
+  transition: width 0.3s linear;
+  width: 0px;
+}
+.contacts__list ul li:hover {
+  color: #717171;
+}
+.contacts__list ul li:hover::after {
+  width: 104%;
+}
+.contacts__list.open {
+  max-height: 500px;
+  visibility: visible;
+}
+.contacts__list.open ul li {
+  opacity: 1;
+}
 .contacts__select {
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   background-color: #D6E7D2;
   position: relative;
   width: 450px;
   height: 50px;
   margin-top: 95px;
-  display: flex;
-  align-items: center;
   transition: background-color 0.3s ease;
   cursor: pointer;
 }
-.contacts__select:hover {
-  background-color: #EDF2EC;
+.contacts__select:hover, .contacts__select:active {
+  background-color: #C1E698;
+}
+.contacts__select:has(.open) {
+  background-color: #C1E698;
+}
+.contacts__select:has(.open) span::after {
+  transform: rotate(-180deg);
+}
+.contacts__select .selected {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  margin: 0 35px;
 }
 .contacts__select span {
   font-size: 20px;
-  margin-left: 20px;
   color: #717171;
   letter-spacing: 1px;
 }
 .contacts__select span::after {
   content: "";
-  background-image: url("data:image/svg+xml,%3Csvg width='6' height='4' viewBox='0 0 6 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.00003 3.00656L1.00003 1.00667' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M3 3.00635L5 1.00635' stroke='%23717171' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E%0A");
+  background-image: url("data:image/svg+xml,%3Csvg width='6' height='4' viewBox='0 0 6 4' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3.00003 3.00656L1.00003 1.00667' stroke='%23FFFFFF' stroke-width='0.5' stroke-linecap='round'/%3E%3Cpath d='M3 3.00635L5 1.00635' stroke='%23FFFFFF' stroke-width='0.5' stroke-linecap='round'/%3E%3C/svg%3E%0A");
   background-repeat: no-repeat;
   background-color: #AEA1A1;
   width: 16px;
@@ -765,7 +934,7 @@ p {
     right: 22px;
   }
   .contacts img {
-    margin-top: 132px;
+    margin-top: 262px;
     order: 1;
     max-width: 100px;
   }
