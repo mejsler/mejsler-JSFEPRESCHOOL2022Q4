@@ -1,25 +1,24 @@
 const hours = new Date().getHours();
 const greeting = document.querySelector('.greeting');
 const name = document.querySelector('.name');
-
+export let timeOfDay = '';
 export const showGreeting = () => {
-  let result = '';
   switch (true) {
     case hours >= 6 && hours <= 11:
-      result = 'morning';
+      timeOfDay = 'morning';
       break;
     case hours >= 12 && hours <= 17:
-      result = 'afternoon';
+      timeOfDay = 'afternoon';
       break;
     case hours >= 18 && hours <= 23:
-      result = 'evening';
+      timeOfDay = 'evening';
       break;
     case hours >= 0 && hours <= 5:
-      result = 'night';
+      timeOfDay = 'night';
       break;
   }
-  greeting.textContent = `Good ${result}`;
-  setTimeout(showGreeting, 1000 * 60 * 60);
+  greeting.textContent = `Good ${timeOfDay}`;
+  setTimeout(showGreeting, 1000);
 };
 
 const setLocalStorage = () => {
@@ -33,3 +32,5 @@ const getLocalStorage = () => {
   }
 };
 window.addEventListener('load', getLocalStorage);
+
+showGreeting();
