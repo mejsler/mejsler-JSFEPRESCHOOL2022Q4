@@ -2,6 +2,7 @@ import * as time from './modules/time.js';
 import * as greeting from './modules/greeting.js';
 import * as slider from './modules/slider.js';
 import * as weather from './modules/weather.js';
+import * as quotes from './modules/quotes.js';
 
 time.showTime();
 slider.setBackground(greeting.timeOfDay, slider.randomNum);
