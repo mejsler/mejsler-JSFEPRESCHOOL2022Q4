@@ -1,7 +1,9 @@
-const hours = new Date().getHours();
-const greeting = document.querySelector('.greeting');
-const name = document.querySelector('.name');
+const hours = new Date().getHours(),
+      greeting = document.querySelector('.greeting'),
+      name = document.querySelector('.name');
+
 export let timeOfDay = '';
+
 export const showGreeting = () => {
   switch (true) {
     case hours >= 6 && hours <= 11:
@@ -24,6 +26,7 @@ export const showGreeting = () => {
 const setLocalStorage = () => {
   localStorage.setItem('name', name.value);
 };
+
 window.addEventListener('beforeunload', setLocalStorage);
 
 const getLocalStorage = () => {
@@ -31,6 +34,7 @@ const getLocalStorage = () => {
     name.value = localStorage.getItem('name');
   }
 };
+
 window.addEventListener('load', getLocalStorage);
 
 showGreeting();

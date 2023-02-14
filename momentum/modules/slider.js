@@ -1,8 +1,8 @@
 import { timeOfDay } from './greeting.js';
 
-const body = document.querySelector('body');
-const next = document.querySelector('.slide-next');
-const prev = document.querySelector('.slide-prev');
+const body = document.querySelector('body'),
+      next = document.querySelector('.slide-next'),
+      prev = document.querySelector('.slide-prev');
 
 export let randomNum = Math.floor(Math.random() * (20 - 1 + 1) + 1);
 
