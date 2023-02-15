@@ -13,13 +13,31 @@
 <body>
   <header class="header">
     <div class="player">
-      <div class="player-controls">
-        <button class="play-prev player-icon"></button>
-        <button class="play player-icon"></button>
-        <button class="play-next player-icon"></button>
-        <audio src="" class="audio"></audio>
+      <div class="progress-bar">
+        
+        <input type="range" orient="vertical" class="player-progress" value="0" max="100">
+        <div class="time-container"><span class="song-name">Unknown</span>
+          <span class="current-time" class="audio-time">0:00</span>
+          <span>/</span>
+          <span class="duration" class="audio-time">0:00</span>
+        </div>
       </div>
-      <ul class="play-list"></ul>
+      <div class="player-info">
+        <div class="player-controls">
+          <div class="volume-kek"><label for="volume">🔉</label><input id='volume' type="range" class="player-volume"
+              value="15" min="0" max="100" step="1"></div>
+
+          <div class="player-buttons">
+            <button class="play-prev player-icon"></button>
+            <button class="play player-icon"></button>
+            <button class="play-next player-icon"></button>
+            <audio src="" class="audio" preload=”metadata”></audio>
+          </div>
+
+        </div>
+
+        <ul class="play-list"></ul>
+      </div>
     </div>
     <div class="weather">
       <input type="text" placeholder="Minsk" value="" class="city" />
@@ -42,7 +60,7 @@
     <date class="date"></date>
     <div class="greeting-container">
       <span class="greeting"></span>
-      <input type="text" class="name" placeholder="Name"/>
+      <input type="text" class="name" placeholder="Name" />
     </div>
   </main>
   <footer class="footer">
