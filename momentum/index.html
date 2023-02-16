@@ -74,21 +74,28 @@
   </footer>
   <div class="settings-container">
     <div class="settings-popup">
-      <h3>Settings</h3>
-      <div class="settings-widgets-block">
+      <h3>Settings ⚙️</h3>
+      <div class="settings-block settings-hide">
         <h4>Hide widgets</h4>
-
         <ul class="row">
-          <li class="row-item"><label>Time</label><input type="checkbox" name="time" /></li>
-          <li class="row-item"><label>Date</label><input type="checkbox" name="date" /></li>
-          <li class="row-item"><label>Greeting</label><input type="checkbox" name="greeting" /></li>
-          <li class="row-item"><label>Quotes</label><input type="checkbox" name="quotes" /></li>
-          <li class="row-item"><label>Weather</label><input type="checkbox" name="weather" /></li>
-          <li class="row-item"><label>Audio player</label><input type="checkbox" name="player" /></li>
-          <li class="row-item"><label>Todolist</label><input type="checkbox" name="todolist" /></li>
+          <li class="row-item"><label for="time">Time</label><input type="checkbox" name="time" /></li>
+          <li class="row-item"><label for="date">Date</label><input type="checkbox" name="date" /></li>
+          <li class="row-item"><label for="greeting">Greeting</label><input type="checkbox" name="greeting" /></li>
+          <li class="row-item"><label for="quotes">Quotes</label><input type="checkbox" name="quotes" /></li>
+          <li class="row-item"><label for="weather">Weather</label><input type="checkbox" name="weather" /></li>
+          <li class="row-item"><label for="player">Audio player</label><input type="checkbox" name="player" /></li>
+          <li class="row-item"><label for="todolist">Todolist</label><input type="checkbox" name="todolist" /></li>
         </ul>
-
-      </div><svg class="close" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1"
+      </div>
+      <div class="settings-block settings-photo">
+        <h4>Background source</h4>
+        <div class="row">
+          <div class="row-item">GitHub<input type="radio" name="photo-source" class="default" checked></input></div>
+          <div class="row-item">Unsplash<input type="radio" name="photo-source" class="unsplash"></input></div>
+          <div class="row-item">Flickr<input type="radio" name="photo-source" class="flickr"></input></div>
+        </div>
+      </div>
+      <svg class="close" height="25px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1"
         viewBox="0 0 512 512" width="25px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg"
         xmlns:xlink="http://www.w3.org/1999/xlink">
         <path

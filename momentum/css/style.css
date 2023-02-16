@@ -393,29 +393,32 @@ label[for=volume] {
 .settings-popup svg:hover {
   fill: red;
 }
-.settings-widgets-block h4 {
-  margin-bottom: 10px;
-  margin: 15px 0;
+.settings-block {
+  margin-top: 15px;
 }
-.settings-widgets-block .row {
+.settings-block h4 {
+  margin-bottom: 15px;
+}
+.settings-block .row {
   display: flex;
   gap: 5px;
   list-style-type: none;
   flex-wrap: wrap;
 }
-.settings-widgets-block .row-item {
+.settings-block .row-item {
   display: flex;
-  background-color: #cecece;
+  background-color: #ebebeb;
   border-radius: 5px;
   padding: 5px 10px;
+  transition: all 0.3s ease;
 }
-.settings-widgets-block .row-item:hover {
-  background-color: #e9e9e9;
+.settings-block .row-item:hover {
+  background-color: #c5c5c5;
 }
-.settings-widgets-block label {
+.settings-block label {
   margin-right: 10px;
 }
-.settings-widgets-block input {
+.settings-block input {
   cursor: pointer;
   accent-color: #fff;
 }
@@ -430,6 +433,23 @@ label[for=volume] {
 }
 .settings-icon:hover {
   transform: rotate(360deg);
+}
+.settings-photo input {
+  display: flex;
+  padding: 5px 10px;
+  cursor: pointer;
+  margin-left: 10px;
+  background-color: #ebebeb;
+  border-radius: 5px;
+  accent-color: #000;
+  transition: all 0.3s ease;
+}
+.settings-photo input:hover {
+  background-color: #c5c5c5;
+}
+
+.greeting, .time, .date {
+  mix-blend-mode: soft-light;
 }
 
 .settings-container.settings-show {

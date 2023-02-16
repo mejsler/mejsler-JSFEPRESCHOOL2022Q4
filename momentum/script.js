@@ -8,7 +8,6 @@ import * as playlist from './modules/playlist.js';
 import * as settings from './modules/settings.js';
 
 time.showTime();
-slider.setBackground(greeting.timeOfDay, slider.randomNum);
 weather.getWeather(
   `https://api.openweathermap.org/data/2.5/weather?q=Minsk&lang=en&appid=4000964775bc92d3b449bf7044bc46ae&units=metric`
 );

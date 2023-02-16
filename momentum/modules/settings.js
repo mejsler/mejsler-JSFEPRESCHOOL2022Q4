@@ -1,8 +1,10 @@
 const settingsIcon = document.querySelector('.settings-icon'),
-      settingsContainer = document.querySelector('.settings-container'),
-      settingsPopup = document.querySelector('.settings-popup'),
-      settingsWidgetVisibility = document.querySelector('.settings-widgets-block .row'),
-      settingsList = settingsWidgetVisibility.children;
+  settingsContainer = document.querySelector('.settings-container'),
+  settingsPopup = settingsContainer.querySelector('.settings-popup'),
+  settingsWidgetVisibility = settingsContainer.querySelector(
+    '.settings-hide .row'
+  ),
+  settingsList = settingsWidgetVisibility.children;
 
 const setLocalStorage = () => {
   const settings = [];
@@ -68,3 +70,6 @@ settingsContainer.addEventListener('click', (event) => {
     settingsContainer.classList.remove('settings-show');
   }
 });
+
+
+
