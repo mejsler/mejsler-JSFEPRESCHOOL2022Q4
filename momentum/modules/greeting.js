@@ -1,5 +1,5 @@
 const hours = new Date().getHours(),
-      greeting = document.querySelector('.greeting'),
+      greeting = document.querySelector('.greeting-container'),
       name = document.querySelector('.name');
 
 export let timeOfDay = '';
