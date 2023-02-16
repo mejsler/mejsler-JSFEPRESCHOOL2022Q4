@@ -5,6 +5,7 @@ import * as weather from './modules/weather.js';
 import * as quotes from './modules/quotes.js';
 import * as player from './modules/audioplayer.js';
 import * as playlist from './modules/playlist.js';
+import * as settings from './modules/settings.js';
 
 time.showTime();
 slider.setBackground(greeting.timeOfDay, slider.randomNum);
