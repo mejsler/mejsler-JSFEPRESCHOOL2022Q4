@@ -33,7 +33,7 @@ const getLocalStorage = () => {
       settingsList[i].children[1].checked = check;
       const selector = settingsList[i].children[1].name;
       const widget = document.querySelector(`.${selector}`);
-      if (check) {
+      if (!check) {
         widget.classList.remove('hide-widget');
       } else {
         widget.classList.add('hide-widget');
@@ -49,10 +49,10 @@ settingsWidgetVisibility.addEventListener('click', (event) => {
   const target = event.target;
   if (target.tagName === 'INPUT' && target.checked) {
     const widget = document.querySelector(`.${target.name}`);
-    widget.classList.remove('hide-widget');
+    widget.classList.add('hide-widget');
   } else if (target.tagName === 'INPUT' && !target.checked) {
     const widget = document.querySelector(`.${target.name}`);
-    widget.classList.add('hide-widget');
+    widget.classList.remove('hide-widget');
   }
 });
 
