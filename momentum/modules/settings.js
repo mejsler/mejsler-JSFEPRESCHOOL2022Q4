@@ -58,6 +58,7 @@ settingsWidgetVisibility.addEventListener('click', (event) => {
   }
 });
 
+
 settingsIcon.addEventListener('click', () => {
   settingsContainer.classList.toggle('settings-show');
 });
@@ -70,6 +71,3 @@ settingsContainer.addEventListener('click', (event) => {
     settingsContainer.classList.remove('settings-show');
   }
 });
-
-
-
