@@ -44,7 +44,7 @@ body {
 
 .time, .date, .weather, .player, .quotes, .greeting, .todo {
   visibility: visible;
-  opacity: 1;
+  opacity: 0.8;
   transition: all 0.5s ease;
   font-size: 15px;
 }
@@ -362,7 +362,6 @@ label[for=volume] {
 }
 
 .todo {
-  opacity: 0.8;
   min-width: -moz-max-content;
   min-width: max-content;
   text-align: left;
