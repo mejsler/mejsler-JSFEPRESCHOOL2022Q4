@@ -32,10 +32,14 @@ body
     display: flex
     height: 100%
 
-.time, .date, .weather, .player, .quotes, .greeting
+.quotes
+    text-align: right
+    opacity: 0.8
+.time, .date, .weather, .player, .quotes, .greeting, .todo
     visibility: visible
     opacity: 1
     transition: all .5s ease
+    font-size: 15px
 
 .hide-widget
     opacity: 0
@@ -98,7 +102,8 @@ label[for='volume']
     margin-top: 10px
     width: 100%
     display: flex
-    justify-content: space-between
+    justify-content: flex-start
+    gap: 10px
     align-items: center
 
 .play-list
@@ -106,38 +111,29 @@ label[for='volume']
 
 .play-item
     position: relative
+    display: flex
     padding: 5px
-    padding-left: 20px
     list-style: none
     opacity: 0.8
     cursor: pointer
     transition: 0.3s
-
     & .play
         width: 15px
         background-size: 15px
         margin-left: 10px
         height: 15px
-
     &:hover
         opacity: 1
 
-    &::before
-        content: '\2713'
-        position: absolute
-        left: 0
-        top: 2px
-        font-weight: 900
-
-.item-active::before
+.item-active
     color: rgba(32, 255, 32, 0.644)
 
 .player-icon,
 .slider-icon,
 .change-quote
-    width: 32px
-    height: 32px
-    background-size: 32px 32px
+    width: 20px
+    height: 20px
+    background-size: 20px 20px
     background-position: center center
     background-repeat: no-repeat
     background-color: transparent
@@ -160,9 +156,9 @@ label[for='volume']
     transform: scale(1.1)
 
 .play
-    width: 40px
-    height: 40px
-    background-size: 40px 40px
+    width: 30px
+    height: 30px
+    background-size: 30px 30px
     background-image: url('../assets/svg/play.svg')
 
 .pause
@@ -177,25 +173,30 @@ label[for='volume']
 .weather
     display: flex
     flex-direction: column
-    justify-content: space-between
     align-items: flex-start
-    row-gap: 5px
     width: 180px
     min-height: 180px
-    text-align: left
-
-    &-error
-        margin-top: -10px
+    text-align: right
+    margin-top: 10px
 
 .description-container
     display: flex
     flex-wrap: wrap
-    justify-content: flex-start
+    justify-content: flex-end
     align-items: center
-    column-gap: 12px
+    gap: 5px
+    margin-right: 10px
 
 .weather-icon
-    font-size: 44px
+    font-size: 25px
+
+.weather-container
+    display: flex
+    margin-top: 10px
+
+.author
+    font-style: italic
+    margin-bottom: 5px
 
 .city
     width: 170px
@@ -283,23 +284,84 @@ label[for='volume']
 
 .footer
     display: flex
-    flex-direction: column
-    justify-content: flex-end
-    align-items: center
+    justify-content: space-between
+    align-items: flex-end
     width: 100%
     height: 30vh
     min-height: 160px
     padding: 20px
 
 .change-quote
-    margin-bottom: 30px
+    margin-bottom: 15px
     background-image: url('../assets/svg/reload.svg')
+.todo
+    min-width: max-content
+    text-align: left
+    margin-right: 15px
+    max-height: 100%
+    overflow-y: auto
+    &-header
+        display: flex
+        justify-content: space-between
+    &-list
+        display: flex
+        flex-direction: column
+        list-style-type: none
+        margin-bottom: 10px
+        li
+            margin: 5px 0
+            display: flex
+            position: relative
+            div
+                position: absolute
+                right: 0
+                width: 10px
+                height: 10px
+                top: 50%
+                transform: translateY(-50%)
+                background-size: 10px 10px
+                background-image: url("data:image/svg+xml,%3Csvg height='25px' id='Layer_1' style='enable-background:new 0 0 512 512;' version='1.1' viewBox='0 0 512 512' width='25px' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cpath d='M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4 L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1 c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1 c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z' /%3E%3C/svg%3E")
+                cursor: pointer
+                transition: filter 0.2s ease 0s
+                filter: invert(99%) sepia(99%) saturate(17%) hue-rotate(238deg) brightness(104%) contrast(100%)
+                &:hover
+                    filter: invert(13%) sepia(97%) saturate(6618%) hue-rotate(1deg) brightness(111%) contrast(114%)
+            span
+                margin-left: 5px
+                margin-right: 15px
+            input
+                accent-color: #fff
+        input[type=checkbox]:checked + span
+            opacity: .7
+            text-decoration: line-through
 
-.quote
-    min-height: 32px
-
-.author
-    min-height: 20px
+    h4
+        margin-bottom: 10px
+    input[type="text"]
+        background: transparent
+        border: white 1px solid
+        box-shadow: none
+        outline: none
+        border-radius: 5px
+        color: #fff
+        padding: 5px
+        border-bottom-right-radius: 0px
+        border-top-right-radius: 0px
+        &::placeholder
+            color: #fff
+    button
+        margin-left: -5px
+        padding: 5px 10px
+        border: white 1px solid
+        border-top-right-radius: 5px
+        color: #fff
+        cursor: pointer
+        border-bottom-right-radius: 5px
+        background-color: transparent
+        transition: all .3s ease
+        &:hover
+            background-color: #fff
+            color: #000
 
 .settings
     &-container
@@ -322,21 +384,35 @@ label[for='volume']
         background-color: #fff
         padding: 20px
         display: flex
+        margin: 15px
         flex-direction: column
         text-align: left
         position: relative
-        svg
+        .close
+            width: 20px
+            height: 20px
+            background-size: 20px 20px
+            background-image: url("data:image/svg+xml,%3Csvg height='25px' id='Layer_1' style='enable-background:new 0 0 512 512;' version='1.1' viewBox='0 0 512 512' width='25px' xml:space='preserve' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'%3E%3Cpath d='M443.6,387.1L312.4,255.4l131.5-130c5.4-5.4,5.4-14.2,0-19.6l-37.4-37.6c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4 L256,197.8L124.9,68.3c-2.6-2.6-6.1-4-9.8-4c-3.7,0-7.2,1.5-9.8,4L68,105.9c-5.4,5.4-5.4,14.2,0,19.6l131.5,130L68.4,387.1 c-2.6,2.6-4.1,6.1-4.1,9.8c0,3.7,1.4,7.2,4.1,9.8l37.4,37.6c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1L256,313.1l130.7,131.1 c2.7,2.7,6.2,4.1,9.8,4.1c3.5,0,7.1-1.3,9.8-4.1l37.4-37.6c2.6-2.6,4.1-6.1,4.1-9.8C447.7,393.2,446.2,389.7,443.6,387.1z' /%3E%3C/svg%3E")
             position: absolute
             cursor: pointer
             right: 20px
-            transition: fill .3s ease
+            transition: filter .2s ease
             top: 20px
+            border-radius: 50%
             &:hover
-                fill: red
-    &-widgets-block
+                filter: invert(88%) sepia(93%) saturate(2946%) hue-rotate(347deg) brightness(100%) contrast(83%)
+    &-block
+        margin-top: 15px
+        .tags
+            margin-left: 10px
+            display: flex
+            flex: 1
+            input
+                display: flex
+                flex: 1
+                padding-left: 5px
         h4
-            margin-bottom: 10px
-            margin: 15px 0
+            margin-bottom: 15px
         .row
             display: flex
             gap: 5px
@@ -344,11 +420,14 @@ label[for='volume']
             flex-wrap: wrap
             &-item
                 display: flex
-                background-color: #cecece
+                background-color: #ebebeb
                 border-radius: 5px
+                flex-wrap: wrap
+                flex-grow: 1
                 padding: 5px 10px
+                transition: all .3s ease
                 &:hover
-                    background-color: #e9e9e9
+                    background-color: #c5c5c5
         label
             margin-right: 10px
         input
@@ -356,14 +435,30 @@ label[for='volume']
             accent-color: #fff
     &-icon
         position: absolute
-        right: 25px
+        right: 20px
         mix-blend-mode: luminosity
-        bottom: 25px
+        top: 20px
         cursor: pointer
         transition: all .3s ease
         fill: #e9db1e
         &:hover
             transform: rotate(360deg)
+    &-photo
+
+        input[type="radio"]
+            display: flex
+            padding: 5px 10px
+            cursor: pointer
+            margin-left: 10px
+            background-color: #ebebeb
+            border-radius: 5px
+            accent-color: #000
+            transition: all .3s ease
+            &:hover
+                background-color: #c5c5c5
+
+.greeting, .time, .date
+    opacity: .8
 
 .settings-container.settings-show
     opacity: 1
