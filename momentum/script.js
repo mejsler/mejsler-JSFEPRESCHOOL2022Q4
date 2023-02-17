@@ -9,6 +9,4 @@ import * as settings from './modules/settings.js';
 import * as todo from './modules/todo.js';
 
 time.showTime();
-weather.getWeather(
-  `https://api.openweathermap.org/data/2.5/weather?q=Minsk&lang=en&appid=4000964775bc92d3b449bf7044bc46ae&units=metric`
-);
+

@@ -41,14 +41,16 @@
     </div>
     <div class="weather">
       <input type="text" placeholder="Minsk" value="" class="city" />
-      <i class="weather-icon owf"></i>
-      <div class="weather-error"></div>
-      <div class="description-container">
-        <span class="temperature"></span>
-        <span class="weather-description"></span>
+      <div class="weather-container">
+        <div class="description-container">
+          <i class="weather-icon owf"></i>
+          <span class="temperature"></span>
+          <span class="weather-description"></span>
+          <span class="humidity"></span>
+          <span class="wind"></span>
+          <span class="weather-error"></span>
+        </div>
       </div>
-      <div class="wind"></div>
-      <div class="humidity"></div>
     </div>
   </header>
   <main class="main">
@@ -65,18 +67,20 @@
   </main>
   <footer class="footer">
     <div class="todo">
-      <div class="todo-header"><h4>To-do list</h4><span class="todo-count"></span></div>
+      <div class="todo-header">
+        <h4>To-do list</h4><span class="todo-count"></span>
+      </div>
       <ul class="todo-list">
       </ul>
-        <input class="todo-input" type="text" placeholder="New To-do" minlength="1" maxlength="23"/>
-        <button class="todo-button">Add</button>
+      <input class="todo-input" type="text" placeholder="New To-do" minlength="1" maxlength="23" />
+      <button class="todo-button">Add</button>
     </div>
     <div class="quotes">
       <button class="change-quote"></button>
       <div>
         <div class="author"></div>
         <div class="quote"></div>
-      </div> 
+      </div>
     </div>
   </footer>
   <div class="settings-container">
@@ -85,8 +89,8 @@
       <div class="settings-block settings-hide">
         <h4>Hide widgets</h4>
         <ul class="row">
-          <li class="row-item"><label >Time</label><input type="checkbox" name="time" /></li>
-          <li class="row-item"><label >Date</label><input type="checkbox" name="date" /></li>
+          <li class="row-item"><label>Time</label><input type="checkbox" name="time" /></li>
+          <li class="row-item"><label>Date</label><input type="checkbox" name="date" /></li>
           <li class="row-item"><label>Greeting</label><input type="checkbox" name="greeting" /></li>
           <li class="row-item"><label>Quotes</label><input type="checkbox" name="quotes" /></li>
           <li class="row-item"><label>Weather</label><input type="checkbox" name="weather" /></li>
