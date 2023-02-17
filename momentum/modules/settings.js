@@ -27,7 +27,7 @@ const getLocalStorage = () => {
     'quotes',
     'weather',
     'player',
-    'todolist',
+    'todo',
   ];
   for (let i = 0; i < settings.length; i++) {
     if (localStorage.getItem(settings[i])) {

@@ -9,7 +9,7 @@ const body = document.querySelector('body'),
 
 let randomNum = Math.floor(Math.random() * (20 - 1 + 1) + 1);
 let curSource = 'default';
-let sourceTags = false;
+let sourceTags = '';
 const setBackground = (time, num, source, tags) => {
   let numStr = String(num);
   const img = new Image();
@@ -79,7 +79,7 @@ settingsPhoto.addEventListener('click', (event) => {
     flickr.value = '';
     flickr.setAttribute('disabled', '');
     unsplash.setAttribute('disabled', '');
-    sourceTags = false;
+    sourceTags = '';
     curSource = target.classList[0];
     settingsPhoto
       .querySelector(`.${target.classList[0]}-tags`)

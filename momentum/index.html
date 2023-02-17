@@ -60,16 +60,23 @@
     <date class="date"></date>
     <div class="greeting">
       <span class="greeting-container"></span>
-      <input type="text" class="name" placeholder="Name" />
+      <input type="text" class="name" placeholder="introduce yourself" />
     </div>
   </main>
   <footer class="footer">
+    <div class="todo">
+      <div class="todo-header"><h4>To-do list</h4><span class="todo-count"></span></div>
+      <ul class="todo-list">
+      </ul>
+        <input class="todo-input" type="text" placeholder="New To-do" minlength="1" maxlength="23"/>
+        <button class="todo-button">Add</button>
+    </div>
     <div class="quotes">
       <button class="change-quote"></button>
       <div>
-        <div class="quote"></div>
         <div class="author"></div>
-      </div>
+        <div class="quote"></div>
+      </div> 
     </div>
   </footer>
   <div class="settings-container">
@@ -78,13 +85,13 @@
       <div class="settings-block settings-hide">
         <h4>Hide widgets</h4>
         <ul class="row">
-          <li class="row-item"><label for="time">Time</label><input type="checkbox" name="time" /></li>
-          <li class="row-item"><label for="date">Date</label><input type="checkbox" name="date" /></li>
-          <li class="row-item"><label for="greeting">Greeting</label><input type="checkbox" name="greeting" /></li>
-          <li class="row-item"><label for="quotes">Quotes</label><input type="checkbox" name="quotes" /></li>
-          <li class="row-item"><label for="weather">Weather</label><input type="checkbox" name="weather" /></li>
-          <li class="row-item"><label for="player">Audio player</label><input type="checkbox" name="player" /></li>
-          <li class="row-item"><label for="todolist">Todolist</label><input type="checkbox" name="todolist" /></li>
+          <li class="row-item"><label >Time</label><input type="checkbox" name="time" /></li>
+          <li class="row-item"><label >Date</label><input type="checkbox" name="date" /></li>
+          <li class="row-item"><label>Greeting</label><input type="checkbox" name="greeting" /></li>
+          <li class="row-item"><label>Quotes</label><input type="checkbox" name="quotes" /></li>
+          <li class="row-item"><label>Weather</label><input type="checkbox" name="weather" /></li>
+          <li class="row-item"><label>Audio player</label><input type="checkbox" name="player" /></li>
+          <li class="row-item"><label>To-do list</label><input type="checkbox" name="todo" /></li>
         </ul>
       </div>
       <div class="settings-block settings-photo">
@@ -97,7 +104,7 @@
             <input type="radio" name="photo-source" class="unsplash">
             <div class="tags">
               <input class="unsplash-tags" placeholder="Comma separated list of tags"
-                title="Comma separated list of tags" type="text" disabled>
+                title="Comma separated list of tags" type="text" minlength="1" maxlength="50" disabled>
             </div>
           </div>
           <div class="row-item">
@@ -105,7 +112,7 @@
             <input type="radio" name="photo-source" class="flickr">
             <div class="tags">
               <input class="flickr-tags" placeholder="Comma separated list of tags" pattern="(\w+)(,\s*\w+)*"
-                title="Comma separated list of tags" type="text" disabled>
+                title="Comma separated list of tags" type="text" minlength="1" maxlength="50" disabled>
             </div>
           </div>
         </div>

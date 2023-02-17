@@ -6,6 +6,7 @@ import * as quotes from './modules/quotes.js';
 import * as player from './modules/audioplayer.js';
 import * as playlist from './modules/playlist.js';
 import * as settings from './modules/settings.js';
+import * as todo from './modules/todo.js';
 
 time.showTime();
 weather.getWeather(
