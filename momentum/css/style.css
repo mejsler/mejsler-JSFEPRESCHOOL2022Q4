@@ -9,7 +9,6 @@
 }
 
 body {
-  min-width: 480px;
   min-height: 100vh;
   font-family: "Arial", sans-serif;
   font-size: 16px;
@@ -292,7 +291,7 @@ label[for=volume] {
   min-height: 124px;
   margin-bottom: 10px;
   font-family: "Arial-MT";
-  font-size: 100px;
+  font-size: 85px;
   letter-spacing: -4px;
 }
 
@@ -433,6 +432,7 @@ label[for=volume] {
   border-bottom-right-radius: 5px;
   background-color: transparent;
   transition: all 0.3s ease;
+  font-size: 11px;
 }
 .todo button:hover {
   background-color: #fff;
@@ -534,7 +534,7 @@ label[for=volume] {
 .settings-icon:hover {
   transform: rotate(360deg);
 }
-.settings-photo input[type=radio] {
+.settings-photo input[type=radio], .settings-language input[type=radio] {
   display: flex;
   padding: 5px 10px;
   cursor: pointer;
@@ -544,8 +544,36 @@ label[for=volume] {
   accent-color: #000;
   transition: all 0.3s ease;
 }
-.settings-photo input[type=radio]:hover {
+.settings-photo input[type=radio]:hover, .settings-language input[type=radio]:hover {
   background-color: #c5c5c5;
+}
+.settings-language .row-item {
+  flex-grow: 0;
+}
+.settings-author {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.settings-author a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #000;
+  transition: filter 0.3s ease;
+}
+.settings-author a:nth-of-type(2) img {
+  width: 100px;
+}
+.settings-author a:hover {
+  filter: invert(67%) sepia(2%) saturate(37%) hue-rotate(323deg) brightness(97%) contrast(88%);
+}
+.settings-author img {
+  max-height: 25px;
+}
+.settings-author span {
+  margin-left: 10px;
 }
 
 .greeting, .time, .date {
@@ -557,21 +585,20 @@ label[for=volume] {
   visibility: visible;
 }
 
-.time {
-  min-height: 80px;
-  font-size: 72px;
-}
-
-.greeting-container {
-  padding: 5px;
-}
-
-.greeting {
-  min-height: 40px;
-  font-size: 32px;
-}
-
-.name {
-  font-size: 32px;
-  padding: 5px;
+@media (max-width: 768px) {
+  .time {
+    min-height: 80px;
+    font-size: 72px;
+  }
+  .greeting-container {
+    padding: 5px;
+  }
+  .greeting {
+    min-height: 40px;
+    font-size: 32px;
+  }
+  .name {
+    font-size: 32px;
+    padding: 5px;
+  }
 }/*# sourceMappingURL=style.css.map */

@@ -1,11 +1,56 @@
+import { showGreeting } from './greeting.js';
+import { getWeather, city } from './weather.js';
+import { getQuotes } from './quotes.js';
+export let curLang = 'en';
+
 const settingsIcon = document.querySelector('.settings-icon'),
   settingsContainer = document.querySelector('.settings-container'),
   settingsPopup = settingsContainer.querySelector('.settings-popup'),
   settingsWidgetVisibility = settingsContainer.querySelector(
     '.settings-hide .row'
   ),
-  settingsList = settingsWidgetVisibility.children;
+  settingsList = settingsWidgetVisibility.children,
+  setttingsLang = settingsContainer.querySelector('.settings-language');
 
+const translateSettings = (lang) => {
+  const dictionary = {
+    Settings: 'Настройки',
+    'Hide widgets': 'Спрятать виджет',
+    Time: 'Время',
+    Date: 'Дата',
+    Greeting: 'Приветствие',
+    Quotes: 'Цитаты',
+    Weather: 'Погода',
+    'Audio player': 'Аудио плеер',
+    'Background source': 'Источник фоновых изображений',
+    'Comma separated list of tags ': 'Теги через запятую',
+    'Comma separated list of tags': 'Теги через запятую',
+    Language: 'Язык',
+  };
+  if (lang === 'ru') {
+    const langArr = Object.values(dictionary);
+    for (let i = 0; i < 12; i++) {
+      if (i === 9 || i === 10) {
+        const keke = settingsContainer.querySelector(`.l${i}`);
+        keke.setAttribute('placeholder', langArr[i]);
+      } else {
+        const keke = settingsContainer.querySelector(`.l${i}`);
+        keke.textContent = langArr[i];
+      }
+    }
+  } else {
+    const langArr = Object.keys(dictionary);
+    for (let i = 0; i < 12; i++) {
+      if (i === 9 || i === 10) {
+        const keke = settingsContainer.querySelector(`.l${i}`);
+        keke.setAttribute('placeholder', langArr[i]);
+      } else {
+        const keke = settingsContainer.querySelector(`.l${i}`);
+        keke.textContent = langArr[i];
+      }
+    }
+  }
+};
 const setLocalStorage = () => {
   const settings = [];
   for (let i = 0; i < settingsList.length; i++) {
@@ -17,6 +62,7 @@ const setLocalStorage = () => {
   settings.forEach((e) => {
     localStorage.setItem(e[0], e[1]);
   });
+  localStorage.setItem('language', curLang);
 };
 
 const getLocalStorage = () => {
@@ -42,6 +88,11 @@ const getLocalStorage = () => {
       }
     }
   }
+  const selectedLang = setttingsLang.querySelector(
+    `.${localStorage.getItem('language')}`
+  );
+  selectedLang.setAttribute('checked', true);
+  selectedLang.click();
 };
 
 window.addEventListener('load', getLocalStorage);
@@ -58,7 +109,6 @@ settingsWidgetVisibility.addEventListener('click', (event) => {
   }
 });
 
-
 settingsIcon.addEventListener('click', () => {
   settingsContainer.classList.toggle('settings-show');
 });
@@ -69,5 +119,27 @@ settingsContainer.addEventListener('click', (event) => {
     event.target.classList.contains('close')
   ) {
     settingsContainer.classList.remove('settings-show');
+  }
+});
+
+setttingsLang.addEventListener('click', (event) => {
+  if (event.target.tagName === 'INPUT') {
+    curLang = event.target.classList[0];
+    localStorage.setItem('language', curLang);
+    showGreeting(curLang);
+    translateSettings(curLang);
+    getQuotes();
+    let kekap = city.value;
+    if (kekap) {
+      getWeather(kekap, curLang);
+    } else {
+      getWeather('Minsk', curLang);
+      if (curLang === 'ru') {
+        city.setAttribute('placeholder', 'Минск')
+      } else {
+        city.setAttribute('placeholder', 'Minsk')
+      }
+      
+    }
   }
 });

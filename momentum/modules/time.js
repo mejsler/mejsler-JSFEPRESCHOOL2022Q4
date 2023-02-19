@@ -1,7 +1,8 @@
+import { curLang } from './settings.js';
 const time = document.querySelector('.time');
 const date = document.querySelector('.date');
 
-export const showDate = () => {
+const showDate = () => {
   const options = {
     weekday: 'long',
     month: 'long',
@@ -9,11 +10,17 @@ export const showDate = () => {
     timeZone: 'UTC',
     hour12: false,
   };
-  date.textContent = new Date().toLocaleDateString('en-Us', options);
+  if (curLang === 'ru') {
+    date.textContent = new Date().toLocaleDateString('ru-Ru', options);
+  } else {
+    date.textContent = new Date().toLocaleDateString('en-Us', options);
+  }
 };
 
-export const showTime = () => {
-  time.textContent = new Date().toLocaleTimeString();
+const showTime = () => {
+  time.textContent = new Date().toLocaleTimeString('ru-Ru');
   showDate();
   setTimeout(showTime, 1000);
 };
+
+showTime()

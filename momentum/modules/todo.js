@@ -24,7 +24,7 @@ const total = () => {
   for (let i = 0; i < len; i++) {
     if (list.children[i].children[0].checked) count++;
   }
-  counter.textContent = `Done ${count} / ${len}`;
+  counter.textContent = `${count} / ${len}`;
   count = 0;
 };
 
