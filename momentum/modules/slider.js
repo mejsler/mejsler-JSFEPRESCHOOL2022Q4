@@ -30,17 +30,17 @@ const setBackground = (time, num, source, tags) => {
     if (sourceTags) {
       getLinkToUnsplashImage(tags);
     } else {
-      getLinkToUnsplashImage(time);
+      getLinkToUnsplashImage(time[0]);
     }
   } else if (source === 'flickr') {
     img.src = '';
     if (sourceTags) {
       getLinkToFlickrImage(tags);
     } else {
-      getLinkToFlickrImage(time);
+      getLinkToFlickrImage(time[0]);
     }
   } else if (source === 'default') {
-    img.src = `https://raw.githubusercontent.com/mejsler/stage1-tasks/assets/images/${time}/${
+    img.src = `https://raw.githubusercontent.com/mejsler/stage1-tasks/assets/images/${time[0]}/${
       numStr.length === 1 ? numStr.padStart(2, 0) : numStr
     }.jpg`;
   }

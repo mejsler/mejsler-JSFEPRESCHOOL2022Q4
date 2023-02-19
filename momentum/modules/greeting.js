@@ -1,26 +1,33 @@
+import { curLang } from './settings.js';
+
 const hours = new Date().getHours(),
-      greeting = document.querySelector('.greeting-container'),
-      name = document.querySelector('.name');
+  greeting = document.querySelector('.greeting-container'),
+  name = document.querySelector('.name');
 
-export let timeOfDay = '';
+export let timeOfDay;
 
-export const showGreeting = () => {
+export const showGreeting = (lang) => {
   switch (true) {
-    case hours >= 6 && hours <= 11:
-      timeOfDay = 'morning';
+    case hours <= 5:
+      timeOfDay = ['night', 'ночи', 'Доброй '];
       break;
-    case hours >= 12 && hours <= 17:
-      timeOfDay = 'afternoon';
+    case hours <= 11:
+      timeOfDay = ['morning', 'утро', 'Доброе '];
       break;
-    case hours >= 18 && hours <= 23:
-      timeOfDay = 'evening';
+    case hours <= 17:
+      timeOfDay = ['afternoon', 'день', 'Добрый '];
       break;
-    case hours >= 0 && hours <= 5:
-      timeOfDay = 'night';
+    case hours <= 23:
+      timeOfDay = ['evening', 'вечер', 'Добрый '];
       break;
   }
-  greeting.textContent = `Good ${timeOfDay}`;
-  setTimeout(showGreeting, 1000);
+  if (lang === 'ru') {
+    greeting.textContent = `${timeOfDay[2]} ${timeOfDay[1]}`;
+    name.setAttribute('placeholder', 'Как вас зовут?');
+  } else {
+    greeting.textContent = `Good ${timeOfDay[0]}`;
+    name.setAttribute('placeholder', 'introduce yourself');
+  }
 };
 
 const setLocalStorage = () => {
@@ -37,4 +44,4 @@ const getLocalStorage = () => {
 
 window.addEventListener('load', getLocalStorage);
 
-showGreeting();
+showGreeting(curLang);

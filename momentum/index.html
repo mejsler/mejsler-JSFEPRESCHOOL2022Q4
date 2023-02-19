@@ -16,7 +16,7 @@
       <div class="progress-bar">
 
         <input type="range" orient="vertical" class="player-progress" value="0" max="100">
-        <div class="time-container"><span class="song-name">Unknown</span>
+        <div class="time-container"><span class="song-name"></span>
           <span class="current-time" class="audio-time">0:00</span>
           <span>/</span>
           <span class="duration" class="audio-time">0:00</span>
@@ -68,12 +68,12 @@
   <footer class="footer">
     <div class="todo">
       <div class="todo-header">
-        <h4>To-do list</h4><span class="todo-count"></span>
+        <h4>To-do</h4><span class="todo-count"></span>
       </div>
       <ul class="todo-list">
       </ul>
-      <input class="todo-input" type="text" placeholder="New To-do" minlength="1" maxlength="23" />
-      <button class="todo-button">Add</button>
+      <input class="todo-input" type="text" minlength="1" maxlength="23" />
+      <button class="todo-button">➕</button>
     </div>
     <div class="quotes">
       <button class="change-quote"></button>
@@ -85,21 +85,21 @@
   </footer>
   <div class="settings-container">
     <div class="settings-popup">
-      <h3>Settings ⚙️</h3>
+      <h3 class="l0">Settings</h3>
       <div class="settings-block settings-hide">
-        <h4>Hide widgets</h4>
+        <h4 class="l1">Hide widgets</h4>
         <ul class="row">
-          <li class="row-item"><label>Time</label><input type="checkbox" name="time" /></li>
-          <li class="row-item"><label>Date</label><input type="checkbox" name="date" /></li>
-          <li class="row-item"><label>Greeting</label><input type="checkbox" name="greeting" /></li>
-          <li class="row-item"><label>Quotes</label><input type="checkbox" name="quotes" /></li>
-          <li class="row-item"><label>Weather</label><input type="checkbox" name="weather" /></li>
-          <li class="row-item"><label>Audio player</label><input type="checkbox" name="player" /></li>
-          <li class="row-item"><label>To-do list</label><input type="checkbox" name="todo" /></li>
+          <li class="row-item"><label class="l2">Time</label><input type="checkbox" name="time" /></li>
+          <li class="row-item"><label class="l3">Date</label><input type="checkbox" name="date" /></li>
+          <li class="row-item"><label class="l4">Greeting</label><input type="checkbox" name="greeting" /></li>
+          <li class="row-item"><label class="l5">Quotes</label><input type="checkbox" name="quotes" /></li>
+          <li class="row-item"><label class="l6">Weather</label><input type="checkbox" name="weather" /></li>
+          <li class="row-item"><label class="l7">Audio player</label><input type="checkbox" name="player" /></li>
+          <li class="row-item"><label>To-do</label><input type="checkbox" name="todo" /></li>
         </ul>
       </div>
       <div class="settings-block settings-photo">
-        <h4>Background source</h4>
+        <h4 class="l8">Background source</h4>
         <div class="row">
           <div class="row-item"><span>GitHub</span><input type="radio" name="photo-source" class="default" checked>
           </div>
@@ -107,19 +107,31 @@
             <span>Unsplash</span>
             <input type="radio" name="photo-source" class="unsplash">
             <div class="tags">
-              <input class="unsplash-tags" placeholder="Comma separated list of tags"
-                title="Comma separated list of tags" type="text" minlength="1" maxlength="50" disabled>
+              <input class="unsplash-tags l9" placeholder="Comma separated list of tags" type="text" minlength="1"
+                maxlength="50" disabled>
             </div>
           </div>
           <div class="row-item">
             <span>Flickr</span>
             <input type="radio" name="photo-source" class="flickr">
             <div class="tags">
-              <input class="flickr-tags" placeholder="Comma separated list of tags" pattern="(\w+)(,\s*\w+)*"
-                title="Comma separated list of tags" type="text" minlength="1" maxlength="50" disabled>
+              <input class="flickr-tags l10" placeholder="Comma separated list of tags" pattern="(\w+)(,\s*\w+)*"
+                type="text" minlength="1" maxlength="50" disabled>
             </div>
           </div>
         </div>
+      </div>
+      <div class="settings-block settings-language">
+        <h4 class="l11">Language</h4>
+        <ul class="row">
+          <li class="row-item"><span>English</span><input class="en" type="radio" name="language" checked></li>
+          <li class="row-item"><span>russian</span><input class="ru" type="radio" name="language"></li>
+        </ul>
+      </div>
+      <div class="settings-block settings-author">
+        <a href="https://github.com/mejsler/" target="_blank"><img src="./assets/img/github-mark.svg"
+            alt="Github link"><span>Mejsler</span></a>
+        <a href="https://rs.school/js/" target="_blank"><img src="./assets/img/rs_school_js.svg" alt="Rs school link"></a>
       </div>
       <div class="close"></div>
     </div>
