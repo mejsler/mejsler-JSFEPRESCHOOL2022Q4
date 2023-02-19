@@ -7,3 +7,5 @@ import * as todo from './modules/todo.js';
 import * as quotes from './modules/quotes.js';
 import * as settings from './modules/settings.js';
 import * as time from './modules/time.js';
+
+console.log('Все пункты задания выполнены, самооценка - 160 баллов')
