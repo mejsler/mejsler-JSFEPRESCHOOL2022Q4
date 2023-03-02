@@ -103,14 +103,18 @@ window.addEventListener('beforeunload', () => {
 
 window.addEventListener('load', () => {
   curSource = localStorage.getItem('source');
-  sourceTags = localStorage.getItem('sourceTag');
-  if (curSource !== 'default' && curSource !== null) {
-    settingsPhoto.querySelector(`.${curSource}`).setAttribute('checked', true);
+  sourceTags = localStorage.getItem('sourceTag'); 
+  if (localStorage.getItem('source')) {
+if (curSource !== 'default' && curSource !== null) {
+    const targetSrc = settingsPhoto.querySelector(`.${curSource}`);
+    targetSrc.setAttribute('checked', true);
     const target = settingsPhoto.querySelector(`.${curSource}-tags`);
     target.removeAttribute('disabled');
     target.value = sourceTags;
     setBackground(timeOfDay, randomNum, curSource, sourceTags);
-  } else {
+  } 
+  }
+  else {
     curSource = 'default';
     settingsPhoto.querySelector(`.${curSource}`).setAttribute('checked', true);
     setBackground(timeOfDay, randomNum, curSource, sourceTags);
