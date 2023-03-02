@@ -40,9 +40,8 @@ const setBackground = (time, num, source, tags) => {
       getLinkToFlickrImage(time[0]);
     }
   } else if (source === 'default') {
-    img.src = `https://raw.githubusercontent.com/mejsler/stage1-tasks/assets/images/${time[0]}/${
-      numStr.length === 1 ? numStr.padStart(2, 0) : numStr
-    }.jpg`;
+    img.src = `https://raw.githubusercontent.com/mejsler/stage1-tasks/assets/images/${time[0]}/${numStr.length === 1 ? numStr.padStart(2, 0) : numStr
+      }.jpg`;
   }
 
   img.addEventListener('load', () => {
@@ -105,13 +104,14 @@ window.addEventListener('beforeunload', () => {
 window.addEventListener('load', () => {
   curSource = localStorage.getItem('source');
   sourceTags = localStorage.getItem('sourceTag');
-  if (curSource !== 'default') {
+  if (curSource !== 'default' && curSource !== null) {
     settingsPhoto.querySelector(`.${curSource}`).setAttribute('checked', true);
     const target = settingsPhoto.querySelector(`.${curSource}-tags`);
     target.removeAttribute('disabled');
     target.value = sourceTags;
     setBackground(timeOfDay, randomNum, curSource, sourceTags);
   } else {
+    curSource = 'default';
     settingsPhoto.querySelector(`.${curSource}`).setAttribute('checked', true);
     setBackground(timeOfDay, randomNum, curSource, sourceTags);
   }
