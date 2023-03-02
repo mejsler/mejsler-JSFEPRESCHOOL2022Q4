@@ -66,6 +66,7 @@ const setLocalStorage = () => {
 };
 
 const getLocalStorage = () => {
+  let selectedLang;
   const settings = [
     'time',
     'date',
@@ -88,9 +89,15 @@ const getLocalStorage = () => {
       }
     }
   }
-  const selectedLang = setttingsLang.querySelector(
-    `.${localStorage.getItem('language')}`
-  );
+  if (localStorage.getItem('language')) {
+    selectedLang = setttingsLang.querySelector(
+      `.${localStorage.getItem('language')}`
+    )
+  } else {
+    selectedLang = setttingsLang.querySelector(
+      `.en`
+    )
+  };
   selectedLang.setAttribute('checked', true);
   selectedLang.click();
 };
@@ -139,7 +146,7 @@ setttingsLang.addEventListener('click', (event) => {
       } else {
         city.setAttribute('placeholder', 'Minsk')
       }
-      
+
     }
   }
 });
