@@ -98,7 +98,11 @@ setBackground(timeOfDay, randomNum, curSource, sourceTags);
 
 window.addEventListener('beforeunload', () => {
   localStorage.setItem('sourceTag', sourceTags);
-  localStorage.setItem('source', curSource);
+  if (curSource !== null) {
+    localStorage.setItem('source', curSource);
+  } else {
+    localStorage.setItem('source', 'default');
+  }
 });
 
 window.addEventListener('load', () => {
