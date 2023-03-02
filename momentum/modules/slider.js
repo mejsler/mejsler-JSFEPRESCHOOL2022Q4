@@ -98,25 +98,29 @@ setBackground(timeOfDay, randomNum, curSource, sourceTags);
 
 window.addEventListener('beforeunload', () => {
   localStorage.setItem('sourceTag', sourceTags);
-  localStorage.setItem('source', curSource);
+  if (curSource !== null) {
+    localStorage.setItem('source', curSource);
+  } else {
+    localStorage.setItem('source', 'default');
+  }
 });
 
 window.addEventListener('load', () => {
   curSource = localStorage.getItem('source');
-  sourceTags = localStorage.getItem('sourceTag'); 
+  sourceTags = localStorage.getItem('sourceTag');
   if (localStorage.getItem('source')) {
-if (curSource !== 'default' && curSource !== null) {
-    const targetSrc = settingsPhoto.querySelector(`.${curSource}`);
-    targetSrc.setAttribute('checked', true);
-    const target = settingsPhoto.querySelector(`.${curSource}-tags`);
-    target.removeAttribute('disabled');
-    target.value = sourceTags;
-    setBackground(timeOfDay, randomNum, curSource, sourceTags);
-  } 
-  }
-  else {
-    curSource = 'default';
-    settingsPhoto.querySelector(`.${curSource}`).setAttribute('checked', true);
-    setBackground(timeOfDay, randomNum, curSource, sourceTags);
+    if (curSource !== 'default') {
+      const targetSrc = settingsPhoto.querySelector(`.${curSource}`);
+      targetSrc.setAttribute('checked', true);
+      const target = settingsPhoto.querySelector(`.${curSource}-tags`);
+      target.removeAttribute('disabled');
+      target.value = sourceTags;
+      setBackground(timeOfDay, randomNum, curSource, sourceTags);
+    }
+    else {
+      curSource = 'default';
+      settingsPhoto.querySelector(`.${curSource}`).setAttribute('checked', true);
+      setBackground(timeOfDay, randomNum, curSource, sourceTags);
+    }
   }
 });
